@@ -204,9 +204,6 @@ export const Hero = () => {
               {/* Gradient Overlay */}
               <div className={`absolute inset-0 bg-gradient-to-r ${slide.overlay}`} />
 
-              {/* Grid Pattern Overlay */}
-              <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border)/0.3)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border)/0.3)_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-30" />
-
               {/* Accent Shapes */}
               <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px]" />
               <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[100px]" />

@@ -3,9 +3,6 @@ import { Hero } from "@/components/Hero";
 import { HomeStats } from "@/components/HomeStats";
 import { Services } from "@/components/Services";
 import { CommandCenters } from "@/components/CommandCenters";
-import { Partners } from "@/components/Partners";
-import { Solutions } from "@/components/Solutions";
-import { Customers } from "@/components/Customers";
 import { JobMap } from "@/components/JobMap";
 
 const homeLocations = [
@@ -28,8 +25,6 @@ const Index = () => {
       <HomeStats />
       <Services />
       <CommandCenters />
-      <Solutions />
-      <Customers />
 
       {/* Map Section */}
       <section className="relative h-[600px] w-full overflow-hidden">
@@ -43,8 +38,6 @@ const Index = () => {
         </div>
         <JobMap locations={homeLocations} activeCity={null} />
       </section>
-
-      <Partners />
     </Layout>
   );
 };

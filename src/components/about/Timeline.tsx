@@ -18,7 +18,7 @@ export const Timeline = () => {
                         {timelineData.map((item, idx) => (
                             <div key={idx} className={`flex items-center justify-between md:flex-row ${idx % 2 === 0 ? 'flex-col' : 'flex-col-reverse md:flex-row-reverse'}`}>
                                 <div className={`w-full md:w-5/12 ${idx % 2 === 0 ? 'md:text-right pr-0 md:pr-12' : 'md:text-left pl-0 md:pl-12'} mb-8 md:mb-0`}>
-                                    <span className="text-6xl font-black text-primary/10 block mb-2">{item.year}</span>
+                                    <span className="text-6xl font-black text-primary/80 block mb-2">{item.year}</span>
                                     <h3 className="text-2xl font-bold text-foreground mb-3">{item.title}</h3>
                                     <p className="text-muted-foreground leading-relaxed">{item.desc}</p>
                                 </div>

@@ -1,4 +1,4 @@
-import { Shield, Users, Truck, Star, Network, Server, ShieldCheck, AlertTriangle, Leaf, Brain, Globe } from "lucide-react";
+import { Shield, Users, Truck, Star, Network, Server, ShieldCheck, AlertTriangle, Leaf, Brain, Globe, Plane } from "lucide-react";
 
 export const statsData = [
     {
@@ -497,6 +497,58 @@ export const capabilityPillars: CapabilityPillar[] = [
                     "Music festivals and outdoor concerts with general admission standing areas",
                     "Political demonstrations with potential for escalation",
                     "Stadium evacuations following threats or medical emergencies"
+                ]
+            }
+        ]
+    },
+    {
+        icon: Plane,
+        title: "Autonomous Systems & Robotics Security",
+        punchline: "Next-generation unmanned security solutions for comprehensive aerial and ground-based protection",
+        topics: [
+            {
+                title: "Advanced Drone Surveillance Operations",
+                capabilities: [
+                    "Autonomous Aerial Patrols: AI-powered drones with thermal imaging, night vision, and long-range zoom capabilities conducting scheduled perimeter sweeps with automatic anomaly detection.",
+                    "Swarm Intelligence: Coordinated multi-drone operations with distributed sensing, collaborative threat tracking, and redundant coverage ensuring no blind spots.",
+                    "Real-Time Analytics: Edge computing on drones for instant threat classification, license plate recognition, and facial identification without cloud latency.",
+                    "Weather-Resistant Operations: All-weather capable platforms with wind resistance, rain protection, and temperature-hardened components for 24/7 deployment."
+                ],
+                scenarios: [
+                    "Large industrial complexes requiring perimeter monitoring across hundreds of acres",
+                    "Border security operations in remote or difficult terrain",
+                    "Critical infrastructure protection for power plants and refineries",
+                    "Event security providing aerial oversight of mass gatherings"
+                ]
+            },
+            {
+                title: "Ground-Based Robotics & Autonomous Patrol",
+                capabilities: [
+                    "Mobile Security Robots: Autonomous ground vehicles with 360° cameras, thermal sensors, and two-way communication for indoor and outdoor patrols.",
+                    "Intelligent Navigation: SLAM (Simultaneous Localization and Mapping) technology enabling autonomous navigation in complex environments with obstacle avoidance.",
+                    "Threat Response: Integrated sirens, strobe lights, and automated alert systems with remote human intervention capabilities.",
+                    "Continuous Operation: Self-charging stations enabling 24/7 autonomous patrols with minimal human supervision."
+                ],
+                scenarios: [
+                    "Warehouse and logistics facilities requiring overnight security",
+                    "Corporate campuses with large outdoor areas and parking structures",
+                    "Data centers needing continuous interior monitoring",
+                    "Manufacturing facilities with hazardous areas limiting human access"
+                ]
+            },
+            {
+                title: "Integrated Autonomous Security Ecosystem",
+                capabilities: [
+                    "Unified Command Platform: Single interface controlling both aerial and ground autonomous systems with coordinated response protocols.",
+                    "AI-Driven Deployment: Machine learning algorithms optimizing patrol routes, scheduling, and resource allocation based on historical threat data.",
+                    "Human-Robot Collaboration: Seamless handoff between autonomous systems and human security personnel for threat escalation.",
+                    "Regulatory Compliance: FAA Part 107 certified operations, privacy-preserving analytics, and comprehensive audit logging."
+                ],
+                scenarios: [
+                    "Smart city initiatives integrating municipal security infrastructure",
+                    "Multi-site enterprises requiring centralized autonomous security management",
+                    "High-security facilities combining manned and unmanned security layers",
+                    "Emergency response scenarios requiring rapid autonomous reconnaissance"
                 ]
             }
         ]

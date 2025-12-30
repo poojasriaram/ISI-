@@ -102,6 +102,12 @@ export const coreSecurityData = [
         icon: Layers,
         levels: "L4-L5",
         description: "End-to-end integration of disparate security systems into a unified command and control framework.",
+    },
+    {
+        title: "Drone Surveillance & Aerial Security",
+        icon: Plane,
+        levels: "L4-L5",
+        description: "Advanced drone-based surveillance with thermal imaging, AI-powered threat detection, and autonomous perimeter monitoring.",
     }
 ];
 

@@ -16,10 +16,10 @@ const navItems = [
   { name: "Verticals", href: "/verticals", hasDropdown: true },
   { name: "Offerings", href: "/offerings", hasDropdown: true },
   { name: "Capabilities", href: "/capabilities" },
-  { name: "Solutions", href: "#solutions" },
-  { name: "Customers", href: "#customers" },
-  { name: "Partners", href: "#partners" },
-  { name: "Career", href: "/career" },
+  { name: "Solutions", href: "/solutions" },
+  { name: "Customers", href: "/customers" },
+  { name: "Partners", href: "/partners" },
+  { name: "Careers", href: "/career" },
 ];
 
 // New industry verticals list for the dropdown

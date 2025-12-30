@@ -28,8 +28,8 @@ const certifications = ["ISO 9001:2015", "PSARA Licensed", "RBI Empanelled", "DG
 export const Footer = () => {
   return (
     <footer className="bg-foreground text-background relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--background)/0.02)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--background)/0.02)_1px,transparent_1px)] bg-[size:60px_60px]" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px]" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px]" />
 
       {/* Newsletter Section */}
       <div className="border-b border-background/10 relative">

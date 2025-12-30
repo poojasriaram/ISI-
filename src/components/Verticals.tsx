@@ -448,7 +448,7 @@ export const Verticals = ({ isSidebar = false }: VerticalsProps) => {
             <Button
               size="lg"
               variant="outline"
-              className="border-white/30 text-white hover:bg-white/10 hover:border-white/50 px-8 py-6 rounded-xl transition-all duration-300"
+              className="bg-white/5 border-white/30 text-white hover:bg-white/10 hover:border-white/50 px-8 py-6 rounded-xl transition-all duration-300"
             >
               Download Brochure
             </Button>

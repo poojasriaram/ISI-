@@ -9,6 +9,9 @@ import ContactPage from "./pages/ContactPage";
 import VerticalsPage from "./pages/VerticalsPage";
 import CareersPage from "./pages/CareersPage";
 import AboutPage from "./pages/AboutPage";
+import SolutionsPage from "./pages/SolutionsPage";
+import CustomersPage from "./pages/CustomersPage";
+import PartnersPage from "./pages/PartnersPage";
 import NotFound from "./pages/NotFound";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { WhatsAppWidget } from "@/components/WhatsAppWidget";
@@ -54,6 +57,9 @@ const AppRouter = () => (
       <Route path="/about" element={<AboutPage />} />
       <Route path="/capabilities" element={<CapabilitiesPage />} />
       <Route path="/offerings" element={<OfferingsPage />} />
+      <Route path="/solutions" element={<SolutionsPage />} />
+      <Route path="/customers" element={<CustomersPage />} />
+      <Route path="/partners" element={<PartnersPage />} />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/terms-of-service" element={<TermsOfService />} />
       <Route path="/cookie-policy" element={<CookiePolicy />} />

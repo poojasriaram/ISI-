@@ -187,6 +187,30 @@ const commandCenterSolutions = [
             { metric: "5x", label: "Faster emergency response" },
             { metric: "HIPAA", label: "Strong health data compliance" }
         ]
+    },
+    {
+        id: "manufacturing",
+        title: "Smart Manufacturing & Industrial Command Center",
+        subtitle: "IoT + AI + Predictive Operations",
+        icon: Building2,
+        gradient: "from-blue-600 to-blue-700",
+        industries: ["Manufacturing plants & factories", "Industrial parks & SEZs", "Oil & gas facilities"],
+        capabilities: [
+            "Real-time equipment monitoring & predictive maintenance",
+            "AI-powered safety & hazard detection systems",
+            "Drone-based perimeter & facility surveillance",
+            "Integrated access control & workforce tracking"
+        ],
+        useCases: [
+            "Prevent equipment failures with predictive analytics",
+            "Auto-detect safety violations & hazardous conditions",
+            "Monitor restricted zones with autonomous drones"
+        ],
+        impact: [
+            { metric: "40%", label: "Reduction in downtime" },
+            { metric: "↓ 60%", label: "Safety incidents prevented" },
+            { metric: "24/7", label: "Continuous monitoring" }
+        ]
     }
 ];
 
@@ -209,7 +233,7 @@ export const CommandCenters = () => {
     return (
         <section id="command-centers" className="relative overflow-hidden scroll-mt-32">
             {/* ===== HERO SECTION ===== */}
-            <div className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+            <div className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900">
                 {/* Animated Background Grid */}
                 <div className="absolute inset-0 opacity-20">
                     <div className="absolute inset-0" style={{
@@ -241,12 +265,12 @@ export const CommandCenters = () => {
                     </h1>
 
                     {/* Subtitle */}
-                    <p className="text-xl md:text-2xl text-blue-200/80 font-medium mb-8 max-w-4xl mx-auto">
+                    <p className="text-xl md:text-2xl text-white font-medium mb-8 max-w-4xl mx-auto">
                         AI, IoT, Drone & Quantum-Safe Mission Control Platforms
                     </p>
 
                     {/* Description */}
-                    <p className="text-base md:text-lg text-slate-400 max-w-3xl mx-auto mb-12 leading-relaxed">
+                    <p className="text-base md:text-lg text-white max-w-3xl mx-auto mb-12 leading-relaxed">
                         We deliver mission-critical Command Centers that fuse ground sensors, enterprise systems,
                         AI intelligence, and autonomous drones into a single, secure, quantum-resilient control layer.
                     </p>
@@ -281,69 +305,6 @@ export const CommandCenters = () => {
 
                 {/* Bottom Gradient Fade */}
                 <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
-            </div>
-
-            {/* ===== CORE TECHNOLOGY STACK SECTION ===== */}
-            <div className="py-24 bg-background relative">
-                {/* Background Pattern */}
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent" />
-
-                <div className="container mx-auto px-4 lg:px-8 relative z-10">
-                    {/* Section Header */}
-                    <div className="text-center mb-16">
-                        <Badge variant="outline" className="px-4 py-1.5 text-xs font-bold uppercase tracking-widest bg-primary/10 border-primary/20 text-primary mb-6">
-                            <CircuitBoard className="w-3 h-3 mr-2" />
-                            Technology Foundation
-                        </Badge>
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-                            Core Technology Stack
-                        </h2>
-                        <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                            Built on a unified architecture that powers all our Command Center solutions
-                        </p>
-                    </div>
-
-                    {/* Tech Stack Grid - Reimagined as Horizontal Layers */}
-                    <div className="flex flex-col gap-6 max-w-5xl mx-auto">
-                        {coreTechStack.map((tech, index) => (
-                            <div
-                                key={index}
-                                className="group relative bg-card/60 backdrop-blur-sm border border-border/50 rounded-2xl overflow-hidden hover:border-blue-600/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-900/10"
-                            >
-                                <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-blue-600 to-blue-800" />
-
-                                <div className="p-6 md:p-8 flex flex-col md:flex-row gap-6 md:gap-8 items-start">
-                                    {/* Icon Section */}
-                                    <div className="flex-shrink-0">
-                                        <div className="w-16 h-16 rounded-2xl bg-blue-600/10 flex items-center justify-center group-hover:bg-blue-600 group-hover:scale-110 transition-all duration-300">
-                                            <tech.icon className="w-8 h-8 text-blue-600 group-hover:text-white transition-colors" />
-                                        </div>
-                                    </div>
-
-                                    {/* Content Section */}
-                                    <div className="flex-grow space-y-4">
-                                        <div>
-                                            <h3 className="text-xl md:text-2xl font-bold text-foreground mb-1">{tech.title}</h3>
-                                            <div className="flex items-center gap-2 text-sm font-medium text-blue-500/80">
-                                                <CheckCircle2 className="w-4 h-4" />
-                                                {tech.outcome}
-                                            </div>
-                                        </div>
-
-                                        <div className="grid md:grid-cols-2 gap-3">
-                                            {tech.features.map((feature, i) => (
-                                                <div key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
-                                                    <div className="w-1.5 h-1.5 rounded-full bg-blue-600/50" />
-                                                    {feature.text}
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
             </div>
 
             {/* ===== SPECIALIZED COMMAND CENTER SOLUTIONS ===== */}
@@ -469,10 +430,73 @@ export const CommandCenters = () => {
                             Mission-Critical Intelligence. Quantum-Safe. Autonomous.
                         </h3>
                         <p className="text-lg text-blue-200/80 leading-relaxed">
-                            A unified Command Center ecosystem that combines AI, IoT sensors, autonomous drones,
-                            and quantum-resilient security—delivering predictive control and assured outcomes for
+                            A unified Command Center ecosystem that combines AI, IoT Sensors, Autonomous Drones,
+                            and Quantum-Resilient Security—delivering predictive control and assured outcomes for
                             banks, retailers, healthcare, logistics, and critical infrastructure.
                         </p>
+                    </div>
+                </div>
+            </div>
+
+            {/* ===== CORE TECHNOLOGY STACK SECTION ===== */}
+            <div className="py-24 bg-background relative">
+                {/* Background Pattern */}
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent" />
+
+                <div className="container mx-auto px-4 lg:px-8 relative z-10">
+                    {/* Section Header */}
+                    <div className="text-center mb-16">
+                        <Badge variant="outline" className="px-4 py-1.5 text-xs font-bold uppercase tracking-widest bg-primary/10 border-primary/20 text-primary mb-6">
+                            <CircuitBoard className="w-3 h-3 mr-2" />
+                            Technology Foundation
+                        </Badge>
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+                            Core Technology Stack
+                        </h2>
+                        <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+                            Built on a unified architecture that powers all our Command Center solutions
+                        </p>
+                    </div>
+
+                    {/* Tech Stack Grid - Reimagined as Horizontal Layers */}
+                    <div className="flex flex-col gap-6 max-w-5xl mx-auto">
+                        {coreTechStack.map((tech, index) => (
+                            <div
+                                key={index}
+                                className="group relative bg-card/60 backdrop-blur-sm border border-border/50 rounded-2xl overflow-hidden hover:border-blue-600/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-900/10"
+                            >
+                                <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-blue-600 to-blue-800" />
+
+                                <div className="p-6 md:p-8 flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                                    {/* Icon Section */}
+                                    <div className="flex-shrink-0">
+                                        <div className="w-16 h-16 rounded-2xl bg-blue-600/10 flex items-center justify-center group-hover:bg-blue-600 group-hover:scale-110 transition-all duration-300">
+                                            <tech.icon className="w-8 h-8 text-blue-600 group-hover:text-white transition-colors" />
+                                        </div>
+                                    </div>
+
+                                    {/* Content Section */}
+                                    <div className="flex-grow space-y-4">
+                                        <div>
+                                            <h3 className="text-xl md:text-2xl font-bold text-foreground mb-1">{tech.title}</h3>
+                                            <div className="flex items-center gap-2 text-sm font-medium text-blue-500/80">
+                                                <CheckCircle2 className="w-4 h-4" />
+                                                {tech.outcome}
+                                            </div>
+                                        </div>
+
+                                        <div className="grid md:grid-cols-2 gap-3">
+                                            {tech.features.map((feature, i) => (
+                                                <div key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
+                                                    <div className="w-1.5 h-1.5 rounded-full bg-blue-600/50" />
+                                                    {feature.text}
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>

@@ -7,7 +7,6 @@ const PrivacyPolicy = () => {
             <div className="bg-background min-h-screen">
                 {/* Header */}
                 <div className="relative py-20 bg-slate-900 overflow-hidden">
-                    <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--primary)/0.1)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--primary)/0.1)_1px,transparent_1px)] bg-[size:40px_40px] opacity-20" />
                     <div className="container mx-auto px-4 relative z-10 text-center">
                         <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Privacy Policy</h1>
                         <p className="text-lg text-slate-300 max-w-2xl mx-auto">

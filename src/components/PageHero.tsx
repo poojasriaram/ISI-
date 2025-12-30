@@ -106,9 +106,6 @@ export const PageHero = ({ slides, autoplayDelay = 5000 }: PageHeroProps) => {
 
                             {/* Gradient Overlay */}
                             <div className={`absolute inset-0 bg-gradient-to-r ${slide.overlay || 'from-background via-background/95 to-background/70'}`} />
-
-                            {/* Grid Pattern Overlay */}
-                            <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border)/0.3)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border)/0.3)_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-30" />
                         </div>
                     ))}
                 </div>

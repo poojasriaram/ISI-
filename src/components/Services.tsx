@@ -1,4 +1,4 @@
-import { Shield, Camera, MapPin, Truck, Search, Users, Building, FileCheck, ArrowRight, Cpu, LineChart } from "lucide-react";
+import { Shield, Camera, MapPin, Truck, Search, Users, Building, FileCheck, ArrowRight, Cpu, LineChart, Plane } from "lucide-react";
 
 const services = [
   {
@@ -67,6 +67,12 @@ const services = [
     description: "Data-driven threat analysis, security audits, and strategic consulting for resilient risk management.",
     color: "from-rose-500/20 to-pink-600/5",
   },
+  {
+    icon: Plane,
+    title: "Drone Surveillance Services",
+    description: "Advanced aerial monitoring with thermal imaging, AI threat detection, and autonomous perimeter security for large-scale facilities.",
+    color: "from-sky-500/20 to-blue-600/5",
+  },
 ];
 
 export const Services = () => {
@@ -102,22 +108,22 @@ export const Services = () => {
               {/* Gradient Background */}
               <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
 
-              <div className="relative z-10">
+              <div className="relative z-10 flex flex-col items-center h-full">
                 {/* Icon */}
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
                   <service.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
                 </div>
 
                 {/* Content */}
-                <h3 className="font-semibold text-foreground text-lg mb-3 group-hover:text-foreground transition-colors">
+                <h3 className="font-semibold text-foreground text-lg mb-3 group-hover:text-foreground transition-colors text-center">
                   {service.title}
                 </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4 text-center">
                   {service.description}
                 </p>
 
-                {/* Arrow Link */}
-                <div className="flex items-center gap-2 text-primary text-sm font-medium opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                {/* Arrow Link - Pushed to bottom */}
+                <div className="flex items-center justify-center gap-2 text-primary text-sm font-medium opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 mt-auto">
                   Learn More
                   <ArrowRight className="w-4 h-4" />
                 </div>

@@ -67,7 +67,7 @@ export const OpenPositions = () => {
                     <Button
                         onClick={() => setIsFilterOpen(true)}
                         variant="outline"
-                        className={`gap-2 h-10 px-4 rounded-xl border-border bg-card hover:bg-muted ${activeFiltersCount > 0 ? 'border-primary/50 text-primary bg-primary/5' : ''}`}
+                        className={`gap-2 h-10 px-4 rounded-xl border-border bg-card hover:bg-primary/10 hover:border-primary/30 hover:text-primary transition-colors ${activeFiltersCount > 0 ? 'border-primary/50 text-primary bg-primary/5' : ''}`}
                     >
                         <Filter className="w-4 h-4" />
                         Filters
