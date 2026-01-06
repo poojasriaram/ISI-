@@ -1,4 +1,4 @@
-import { Truck, Wallet, Package, Lock, Shield, Eye, TrendingUp, FileCheck, Zap, Database, CheckCircle2, Building2, Users, BadgeCheck, Activity, MonitorDot, Network, BarChart3, Landmark, Fingerprint, ShieldCheck, GraduationCap, Camera, Bell, Sparkles, Target, Factory, Plane, Hospital, AlertTriangle, Layers } from "lucide-react";
+import { Truck, Wallet, Package, Lock, Shield, Eye, TrendingUp, FileCheck, Zap, Database, CheckCircle2, Building2, Users, BadgeCheck, Activity, MonitorDot, Network, BarChart3, Landmark, Fingerprint, ShieldCheck, GraduationCap, Camera, Bell, Sparkles, Target, Factory, Plane, Settings, Cpu, MapPin, Radio, Wifi, Layers, Globe, AlertTriangle, HardHat } from "lucide-react";
 
 export interface VerticalDetailOffering {
     title: string;
@@ -790,92 +790,92 @@ export const verticalsDetailData: VerticalDetail[] = [
     {
         id: "manufacturing",
         title: "Smart Physical Security for Manufacturing & Defence Sectors",
-        subtitle: "Elite Protection for Critical Industrial and Defence Operations",
-        description: "Manufacturing and defence facilities face elevated security risks: vast perimeters, high-value assets, sensitive technologies, IP protection, insider threats, sabotage, espionage, and rigorous compliance with Factories Act, ISO 45001, DDP guidelines, and export controls. Traditional approaches lack the integration needed for these high-stakes environments. ISI India provides Smart Physical Security — merging elite trained personnel with real-time AI intelligence, predictive analytics, and cyber-physical convergence to protect people, assets, intellectual property, and operational resilience.",
-        gradient: "from-slate-500 via-gray-500 to-zinc-500",
+        subtitle: "Where Human Vigilance Meets Intelligent Technology",
+        description: "Manufacturing and defence facilities in India confront elevated security risks: vast perimeters, high-value assets and sensitive technologies, threats to production/IP continuity, insider risks, sabotage, espionage, and rigorous compliance (Factories Act, ISO 45001, DDP guidelines, ITAR-like controls, and offset requirements). Traditional approaches often lack the integration needed for these high-stakes environments. ISI India provides Smart Physical Security — a unified, tech-augmented solution merging elite trained personnel with real-time AI intelligence, predictive analytics, and cyber-physical convergence to protect people, assets, intellectual property, and operational resilience.",
+        gradient: "from-slate-500 via-gray-600 to-zinc-700",
         icon: Factory,
         sections: [
             {
                 id: "core-guarding-manufacturing",
-                title: "Core Guarding Services",
-                icon: Fingerprint,
+                title: "Core Guarding Services – Tech-Enhanced & Specialized",
+                icon: ShieldCheck,
                 offerings: [
                     {
-                        title: "Tech-Enhanced & Specialized Security",
-                        description: "Ex-defence/paramilitary trained personnel with sector-specific protocols for manufacturing and defence environments.",
+                        title: "Elite Security Personnel with Advanced Technology",
+                        description: "Professional security that combines ex-defence/paramilitary expertise with cutting-edge monitoring systems.",
                         features: [
-                            "Biometric + Facial Recognition Attendance: GPS/real-time location tracking replacing manual logs and paper attendance",
-                            "AI-Optimized Digital Routes: Time-stamped photo/video/geofence proof ensuring verifiable patrol integrity",
-                            "Mobile App Reporting: Instant AI-prioritized alerts to supervisors, clients, and emergency teams for rapid response",
-                            "Ex-Defence Personnel: Sector-specific SOPs including GMP, OSHA, and classified material handling protocols"
+                            "Biometric + Facial Recognition Attendance: Real-time GPS/location tracking replacing manual logs and paper attendance",
+                            "AI-Optimized Digital Patrol Routes: Time-stamped photo/video/geofence proof ensuring verifiable, tamper-proof rounds",
+                            "Mobile App Incident Reporting: Instant AI-prioritized alerts to supervisors, clients, and emergency response teams",
+                            "Ex-Defence/Paramilitary Trained Personnel: Sector-specific SOPs covering GMP, OSHA, and classified material handling protocols"
                         ]
                     }
                 ],
                 benefits: [
                     {
                         title: "40% Fewer Missed Patrols",
-                        description: "AI-optimized routes and digital verification ensure complete coverage and accountability for all security rounds.",
+                        description: "AI-optimized routes and digital verification ensure consistent, verifiable security coverage across all shifts.",
                         icon: CheckCircle2
                     },
                     {
                         title: "3x Faster Response Times",
-                        description: "Instant mobile alerts and AI prioritization enable rapid response to security incidents and emergencies.",
+                        description: "Mobile alerts and instant communication enable rapid coordination with emergency teams and management.",
                         icon: Zap
                     },
                     {
                         title: "Tamper-Proof Audit Trails",
-                        description: "Complete digital documentation for regulatory compliance, insurance claims, and operational audits.",
+                        description: "Complete digital documentation for regulatory compliance, insurance claims, and incident investigation.",
                         icon: FileCheck
                     }
                 ]
             },
             {
                 id: "perimeter-asset-protection",
-                title: "Perimeter & Asset Protection",
-                icon: Shield,
+                title: "Perimeter & Asset Protection – Fortified Against Advanced Threats",
+                icon: Plane,
                 offerings: [
                     {
-                        title: "Fortified Against Advanced Threats",
+                        title: "Multi-Layered Perimeter Defense",
                         description: "Comprehensive protection against unauthorized intrusion, material/IP theft, sabotage, drone incursions, and border proximity risks.",
                         features: [
-                            "Autonomous Thermal Drone Patrols: Day/night coverage for expansive perimeters (up to 10 km²) with anti-drone detection",
-                            "AI-Enhanced Fence Sensors: Vibration/seismic/laser detection with machine learning reducing false alarms by 70-80%",
-                            "RFID/IoT + Video Analytics: Real-time tracking of critical tools, dies, WIP, and classified components",
-                            "Specialized K9 Units: On-call explosives/narcotics/drone countermeasure detection for sensitive shipments"
+                            "Autonomous Thermal Drone Patrols: Day/night coverage for expansive perimeters (up to 10 km²) with anti-drone detection/integration",
+                            "AI-Enhanced Fence Sensors: Vibration/seismic/laser detection with machine learning reducing false alarms by 70–80%",
+                            "RFID/IoT + Video Analytics Correlation: Real-time tracking of critical tools, dies, WIP, and classified components",
+                            "On-Call Specialized K9 Units: Explosives/narcotics/drone countermeasure detection for sensitive shipments and sites"
                         ]
                     }
                 ],
                 benefits: [
                     {
-                        title: "70-80% Reduction in False Alarms",
-                        description: "AI-powered sensors and machine learning distinguish real threats from environmental factors.",
+                        title: "Comprehensive Perimeter Coverage",
+                        description: "Autonomous drones and AI sensors provide 24/7 monitoring of vast industrial perimeters without blind spots.",
                         icon: Eye
                     },
                     {
-                        title: "Comprehensive Asset Tracking",
-                        description: "RFID/IoT integration provides real-time visibility of critical components and intellectual property.",
-                        icon: Package
+                        title: "70-80% Reduction in False Alarms",
+                        description: "Machine learning algorithms distinguish real threats from environmental factors, improving response efficiency.",
+                        icon: Activity
                     },
                     {
-                        title: "Multi-Sector Expertise",
-                        description: "Tailored for Automotive, FMCG, Pharma, Electronics, Heavy Engineering, Aerospace, and Defence Production.",
-                        icon: Factory
+                        title: "Critical Asset Protection",
+                        description: "RFID tracking and video correlation prevent theft and unauthorized movement of high-value materials and IP.",
+                        icon: Lock
                     }
                 ]
             },
             {
-                id: "production-floor-integrity",
+                id: "production-floor-security",
                 title: "Production Floor & Critical Area Integrity",
-                icon: Lock,
+                icon: Settings,
                 offerings: [
                     {
-                        title: "Protecting Operations and Intellectual Property",
+                        title: "Integrated Production Security",
                         description: "Advanced measures addressing internal theft, process sabotage, safety/IP violations, and technology leakage.",
                         features: [
-                            "Multi-Factor Zoned Access Control: Biometric/role-based entry for clean rooms, R&D labs, SCIF-equivalent zones, server rooms",
-                            "Advanced AI Video Analytics: Detects loitering, unauthorized access, PPE non-compliance, unusual behavior, anomaly patterns",
-                            "Integrated Emergency Systems: Panic buttons/duress alarms with immediate alerts to EHS, control room, rapid response teams",
-                            "Secure Shift Handover: Digital protocols with biometric/photo verification and comprehensive audit logging"
+                            "Multi-Factor Zoned Access Control: Biometric/role-based entry for clean rooms, R&D labs, SCIF-equivalent zones, and server rooms",
+                            "Advanced AI Video Analytics: Detects loitering, unauthorized access, PPE non-compliance, unusual behavior, and anomaly patterns",
+                            "Integrated Emergency Systems: Panic buttons/duress alarms with immediate alerts to EHS, control room, and rapid response teams",
+                            "Secure Shift Handover Protocols: Digital protocols with biometric/photo verification and comprehensive audit logging"
                         ]
                     }
                 ],
@@ -886,14 +886,14 @@ export const verticalsDetailData: VerticalDetail[] = [
                         icon: BadgeCheck
                     },
                     {
-                        title: "IP Protection Assurance",
-                        description: "Multi-layered access control and monitoring prevent technology leakage and industrial espionage.",
+                        title: "IP & Technology Protection",
+                        description: "Multi-layered access control and monitoring prevent industrial espionage and technology leakage.",
                         icon: Shield
                     },
                     {
                         title: "Safety Integration",
-                        description: "PPE compliance monitoring and emergency systems ensure worker safety alongside security.",
-                        icon: ShieldCheck
+                        description: "AI analytics detect PPE violations and unsafe behaviors, supporting EHS compliance and worker safety.",
+                        icon: HardHat
                     }
                 ]
             },
@@ -903,319 +903,356 @@ export const verticalsDetailData: VerticalDetail[] = [
                 icon: Truck,
                 offerings: [
                     {
-                        title: "Comprehensive Supply Chain Protection",
-                        description: "Advanced solutions for cargo tampering prevention, vehicle collusion detection, and supply chain espionage mitigation.",
+                        title: "End-to-End Supply Chain Protection",
+                        description: "Comprehensive security against cargo tampering, vehicle collusion, and supply chain espionage.",
                         features: [
                             "ANPR + Biometric Guard Verification: Real-time gate cross-checking with automated deviation alerts",
-                            "Loading Bay & Yard Monitoring: AI tamper-detection cameras for unauthorized access/removals",
-                            "GPS-Enabled Secure Transit: Armored/escorted valuables movement with live tracking, route locks, geo-fencing",
-                            "Digital Yard Management: Real-time visibility of vehicles, containers, personnel, and material flows"
+                            "Loading Bay & Yard Monitoring: AI tamper-detection cameras preventing unauthorized access and removals",
+                            "GPS-Enabled Secure Transit: Armored/escorted valuables movement with live tracking, route locks, and geo-fencing",
+                            "Comprehensive Digital Yard Management: Real-time visibility of vehicles, containers, personnel, and material flows"
                         ]
                     }
                 ],
                 benefits: [
                     {
                         title: "Supply Chain Integrity",
-                        description: "End-to-end tracking and monitoring prevent cargo tampering and unauthorized material movements.",
-                        icon: Package
+                        description: "End-to-end tracking and verification prevent cargo theft, tampering, and unauthorized diversions.",
+                        icon: CheckCircle2
                     },
                     {
-                        title: "Real-Time Yard Visibility",
-                        description: "Complete oversight of all vehicles, containers, and personnel movements within facility premises.",
+                        title: "Real-Time Visibility",
+                        description: "Digital yard management provides complete oversight of all vehicle and material movements.",
                         icon: Eye
                     },
                     {
-                        title: "Secure Transit Operations",
-                        description: "GPS tracking and armed escorts ensure safe transport of high-value materials and components.",
-                        icon: Truck
+                        title: "Automated Compliance",
+                        description: "Digital logs and verification systems ensure audit-ready documentation for regulatory requirements.",
+                        icon: FileCheck
                     }
                 ]
             },
             {
                 id: "command-centre-manufacturing",
-                title: "Central Command Centre",
-                icon: MonitorDot,
+                title: "Central Command Centre – Multi-Site Unified Intelligence",
+                icon: Cpu,
                 offerings: [
                     {
-                        title: "Multi-Site Unified Intelligence",
-                        description: "Single intelligent dashboard for factories, warehouses, depots, and defence installations with centralized supervision.",
+                        title: "Unified Operations Dashboard",
+                        description: "Single intelligent dashboard for factories, warehouses, depots, and defence installations with complete visibility.",
                         features: [
-                            "Live Personnel Tracking: Real-time monitoring of security personnel with patrol analytics and performance metrics",
-                            "Perimeter/Intrusion Alerts: AI triage of security events with instant notifications and response coordination",
-                            "Production Safety Monitoring: Compliance oversight and safety incident tracking across all facilities",
-                            "Supply Chain Oversight: Yard movement monitoring with automated SLA reporting and predictive maintenance alerts"
+                            "Live Personnel Tracking and Patrol Analytics: Real-time monitoring of all security personnel across multiple sites",
+                            "Real-Time Perimeter/Intrusion Alerts with AI Triage: Intelligent prioritization of security incidents and threats",
+                            "Production Safety and Compliance Monitoring: Continuous oversight of safety protocols and regulatory compliance",
+                            "Supply Chain/Yard Movement Oversight: Complete visibility of logistics operations and material flows",
+                            "Automated SLA Reporting and Predictive Maintenance: Performance metrics and proactive system health monitoring"
                         ]
                     }
                 ],
                 benefits: [
                     {
-                        title: "Seamless Multi-Site Management",
-                        description: "Manage single sites to 50+ locations with centralized supervision for dispersed manufacturing networks.",
+                        title: "Multi-Site Scalability",
+                        description: "Seamless management from single sites to 50+ locations with centralized supervision for dispersed networks.",
                         icon: Network
                     },
                     {
-                        title: "AI-Powered Triage",
-                        description: "Intelligent alert prioritization ensures critical incidents receive immediate attention and response.",
-                        icon: Activity
+                        title: "Predictive Intelligence",
+                        description: "AI-powered analytics enable proactive threat detection and resource optimization across all facilities.",
+                        icon: BarChart3
                     },
                     {
-                        title: "Predictive Analytics",
-                        description: "Performance metrics and trend analysis enable proactive security optimization and risk mitigation.",
-                        icon: BarChart3
+                        title: "Unified Command",
+                        description: "Single dashboard integrates all security systems for coordinated response and operational efficiency.",
+                        icon: MonitorDot
                     }
                 ]
             },
             {
-                id: "advanced-offerings-manufacturing",
-                title: "Advanced Offerings for High-Security Clients",
+                id: "advanced-manufacturing-security",
+                title: "Advanced Offerings for High-Security Manufacturing & Defence Clients",
                 icon: Sparkles,
                 offerings: [
                     {
-                        title: "Next-Generation Industrial Security",
-                        description: "Cutting-edge technologies for high-security manufacturing and defence clients requiring the highest level of protection.",
+                        title: "Next-Generation Security Intelligence",
+                        description: "Cutting-edge technologies for high-stakes manufacturing and defence operations requiring maximum protection.",
                         features: [
-                            "Predictive Risk Intelligence: AI/ML analysis of incidents, threats, patterns enabling proactive guard optimization (~25-30% risk reduction)",
-                            "Digital Twin & 3D Mapping: Virtual plant models with live sensor/data overlays for remote audits and emergency simulations",
-                            "Cyber-Physical Security Fusion: Integration with SIEM/OT networks detecting converged threats (physical access + data exfiltration)",
-                            "Counter-Drone & Electronic Warfare: Compliant jamming/detection systems protecting against aerial surveillance/threats"
+                            "Predictive Risk Intelligence: AI/ML analysis of incidents, threats, and patterns enabling proactive guard optimization (~25–30% risk reduction)",
+                            "Digital Twin & 3D Mapping: Virtual plant models with live sensor/data overlays for remote audits, scenario planning, and emergency simulations",
+                            "Cyber-Physical Security Fusion: Integration with SIEM/OT networks detecting converged threats (e.g., physical access + data exfiltration)",
+                            "Classified Compliance Reporting: Secure ESG/safety/IP protection metrics supporting sustainability, audit, and defence offset requirements",
+                            "Counter-Drone & Electronic Warfare Basics: Compliant jamming/detection systems protecting against aerial surveillance and threats"
                         ]
                     }
                 ],
                 benefits: [
                     {
                         title: "25-30% Risk Reduction",
-                        description: "Predictive analytics and proactive optimization significantly reduce security incidents and operational risks.",
+                        description: "Predictive analytics and AI-powered optimization significantly reduce security incidents and operational risks.",
                         icon: TrendingUp
                     },
                     {
                         title: "Cyber-Physical Convergence",
-                        description: "Integrated security detects sophisticated attacks combining physical access with digital exploitation.",
-                        icon: Network
+                        description: "Integrated security platform detects and responds to combined physical and digital threats in real-time.",
+                        icon: Cpu
                     },
                     {
                         title: "Defence-Grade Protection",
-                        description: "Counter-drone systems and classified compliance reporting support the most sensitive operations.",
+                        description: "Counter-drone systems and classified compliance reporting meet the highest security standards.",
                         icon: Shield
                     }
                 ]
             }
         ],
-        closingStatement: "ISI India's Smart Physical Security evolves manned guarding into a resilient, intelligence-driven fortress for manufacturing and defence. With elite ex-defence personnel, AI-powered monitoring, cyber-physical convergence, and unwavering compliance with Factories Act, ISO standards, and defence directives, we deliver proactive defence, unbreakable compliance, and uninterrupted operations for India's vital industrial and defence ecosystems."
+        closingStatement: "ISI India's Smart Physical Security evolves manned guarding into a resilient, intelligence-driven fortress — delivering proactive defence, unbreakable compliance, and uninterrupted operations for India's vital manufacturing and defence ecosystems. Trusted by global leaders in automotive, chemicals, electronics, and high-stakes defence-adjacent operations, we provide elite expertise, stringent compliance, and future-ready scalability that decouples costs from headcount while integrating emerging threats like cyber-physical attacks."
     },
     {
         id: "drones",
         title: "Aerial Intelligence & Drone Services",
         subtitle: "Autonomous Aerial Intelligence. Real-Time Decisions. Trusted Outcomes.",
-        description: "We deliver AI-powered, autonomous drone operations transforming how organizations secure assets, move critical goods, monitor infrastructure, and govern cities. Our services integrate seamlessly with Command & Control Centres, SOCs, GIS platforms, ERP/HIS systems, and municipal platforms, delivering actionable intelligence—not just imagery. From public safety and healthcare to industrial corridors and smart cities, we provide mission-critical aerial intelligence you can rely on.",
-        gradient: "from-sky-500 via-blue-500 to-indigo-500",
+        description: "We deliver AI-powered, autonomous drone operations that transform how organizations secure assets, move critical goods, monitor infrastructure, and govern cities. Our services integrate seamlessly with Command & Control Centres, SOCs, GIS platforms, ERP/HIS systems, and municipal platforms, delivering actionable intelligence—not just imagery. From public safety and healthcare to industrial corridors and smart cities, we provide mission-critical aerial intelligence you can rely on.",
+        gradient: "from-cyan-500 via-blue-500 to-indigo-600",
         icon: Plane,
         sections: [
             {
                 id: "drone-security-crowd",
                 title: "Drone Security & Crowd Monitoring",
-                icon: Users,
+                icon: Eye,
                 offerings: [
                     {
-                        title: "Comprehensive Aerial Security Intelligence",
-                        description: "AI-powered drone operations for large-scale public gatherings, open campuses, industrial plants, ports, borders, and critical infrastructure requiring rapid situational awareness.",
+                        title: "Autonomous Aerial Security Operations",
+                        description: "AI-powered drone surveillance for large-scale events, critical infrastructure, and high-security environments.",
                         features: [
-                            "Autonomous Perimeter Patrols: AI-guided patrol routes with event-triggered dispatch integrated with alarms, access control, and surveillance systems",
+                            "Autonomous Perimeter Patrols: AI-guided patrol routes and event-triggered drone dispatch integrated with alarms, access control, and surveillance systems",
                             "AI-Powered Crowd Intelligence: Overhead crowd counting, density heatmaps, flow analysis, and early-warning alerts for congestion or stampede-risk patterns",
-                            "Incident Overwatch & Command Support: Rapid aerial deployment during fires, industrial incidents, or emergencies providing unified aerial view",
-                            "Private Security Integration: Alarm-triggered drone response with live thermal feeds complementing manned guarding operations"
+                            "Incident Overwatch & Command Support: Rapid aerial deployment during fires, industrial incidents, or public safety emergencies with live unified aerial view",
+                            "Seamless SOC Integration: Encrypted communications, role-based access, and privacy-by-design analytics integrated with VMS and incident-management platforms"
                         ]
                     }
                 ],
                 benefits: [
                     {
                         title: "Real-Time Situational Awareness",
-                        description: "Live aerial intelligence enables commanders to coordinate response and prevent incidents before they escalate.",
+                        description: "Live aerial intelligence enables commanders to make informed decisions and coordinate response effectively.",
                         icon: Eye
                     },
                     {
                         title: "Crowd Safety Assurance",
-                        description: "AI analytics detect dangerous overcrowding, abnormal movement patterns, and stampede risks in real-time.",
-                        icon: Shield
+                        description: "AI-powered density monitoring and flow analysis prevent dangerous overcrowding and stampede situations.",
+                        icon: Users
                     },
                     {
-                        title: "SOC & VMS Integration",
-                        description: "Seamless integration with Security Operations Centers, Video Management Systems, and incident-management platforms.",
-                        icon: Network
+                        title: "Rapid Incident Response",
+                        description: "Event-triggered drone dispatch provides immediate aerial oversight for emergency situations.",
+                        icon: Zap
                     }
                 ]
             },
             {
-                id: "drone-logistics-delivery",
+                id: "drone-logistics",
                 title: "Drone Logistics & Express Delivery",
                 icon: Package,
                 offerings: [
                     {
-                        title: "Time-Critical Autonomous Delivery",
-                        description: "Route-optimized autonomous flights for time-critical, high-value shipments disrupted by traffic, floods, terrain, or access constraints.",
+                        title: "Autonomous Aerial Delivery Solutions",
+                        description: "Time-critical, high-value shipments with route-optimized autonomous flights and smart payload management.",
                         features: [
-                            "Middle & Last-Mile Drone Delivery: Smart payload pods with tamper detection, electronic locks, and temperature monitoring",
-                            "Campus Drone Logistics: Scheduled and on-demand missions between fixed landing pads for intra-facility movement",
-                            "Control Tower Integration: APIs integrated with WMS, TMS, and OMS for automated dispatch and real-time tracking",
-                            "Large Campus Operations: Optimized for industrial plants, ports, SEZs, and logistics hubs"
+                            "Middle- & Last-Mile Drone Delivery: Route-optimised autonomous flights with smart payload pods featuring tamper detection and electronic locks",
+                            "Campus Drone Logistics: Scheduled and on-demand drone missions between fixed landing pads for intra-facility movement",
+                            "Control Tower Integration: APIs integrated with WMS, TMS, and OMS for automated dispatch, real-time tracking, and digital proof of delivery",
+                            "Predictive Fleet Management: Centralized fleet operations with predictive health monitoring and complete flight logs"
                         ]
                     }
                 ],
                 benefits: [
                     {
-                        title: "Bypass Traffic & Terrain",
-                        description: "Autonomous flights overcome road congestion, floods, and difficult terrain for guaranteed delivery times.",
-                        icon: Zap
-                    },
-                    {
-                        title: "Secure Payload Management",
-                        description: "Tamper-evident pods with electronic locks and temperature control ensure cargo integrity.",
-                        icon: Lock
+                        title: "Traffic-Independent Delivery",
+                        description: "Aerial routes bypass ground congestion, floods, and terrain obstacles for guaranteed delivery times.",
+                        icon: Plane
                     },
                     {
                         title: "Complete Traceability",
-                        description: "Full flight logs, digital proof of delivery, and audit trails for operational transparency.",
+                        description: "Digital proof of delivery and complete audit trails ensure accountability and compliance.",
                         icon: FileCheck
+                    },
+                    {
+                        title: "Scalable Operations",
+                        description: "Automated dispatch and fleet management enable efficient scaling across multiple sites and routes.",
+                        icon: Network
                     }
                 ]
             },
             {
                 id: "healthcare-medical-drones",
                 title: "Healthcare & Medical Drone Services",
-                icon: Hospital,
+                icon: Activity,
                 offerings: [
                     {
-                        title: "Life-Saving Medical Logistics",
-                        description: "On-demand and scheduled delivery for rural, hilly, coastal, or flood-prone regions with poor road connectivity and disaster response.",
+                        title: "Life-Saving Aerial Medical Logistics",
+                        description: "Validated cold-chain delivery for medicines, vaccines, blood, organs, and diagnostic samples to remote and emergency locations.",
                         features: [
-                            "Medical Supply Distribution: Medicines, vaccines, and consumables to PHCs, clinics, and mobile health camps",
-                            "Blood & Diagnostic Sample Transport: Validated cold-chain drone pods meeting strict turnaround and temperature SLAs",
-                            "Emergency Medical Logistics: Rapid deployment of PPE, test kits, and life-saving medicines during disasters or pandemics",
-                            "HIS & LIS Integration: Integration with Hospital Information Systems and Laboratory Information Systems for order tracking"
+                            "Medical Supply Distribution: On-demand and scheduled delivery of medicines, vaccines, and consumables to PHCs, clinics, and mobile health camps",
+                            "Blood & Diagnostic Sample Transport: Validated cold-chain drone pods for blood, organs, and lab samples meeting strict turnaround and temperature SLAs",
+                            "Emergency Medical Logistics: Rapid aerial deployment of PPE, test kits, and life-saving medicines during floods, pandemics, or natural disasters",
+                            "HIS/LIS Integration: Integration with Hospital Information Systems and Laboratory Information Systems for order capture and real-time tracking"
                         ]
                     }
                 ],
                 benefits: [
                     {
-                        title: "Critical Time Savings",
-                        description: "Drone delivery reduces transport time from hours to minutes for time-sensitive medical supplies and samples.",
+                        title: "Life-Saving Speed",
+                        description: "Aerial delivery overcomes poor road connectivity in rural, hilly, coastal, or flood-prone regions.",
                         icon: Zap
                     },
                     {
-                        title: "Cold-Chain Compliance",
-                        description: "Validated temperature-controlled pods ensure blood, organs, and vaccines maintain required conditions.",
+                        title: "Cold-Chain Integrity",
+                        description: "Validated temperature-controlled pods ensure sample and medicine quality throughout transport.",
                         icon: Shield
                     },
                     {
-                        title: "Disaster Response Ready",
-                        description: "Rapid aerial deployment during floods, pandemics, or natural disasters when roads are impassable.",
-                        icon: AlertTriangle
+                        title: "Regulatory Compliance",
+                        description: "Audit-ready traceability and regulatory-aligned workflows meet healthcare standards.",
+                        icon: BadgeCheck
                     }
                 ]
             },
             {
-                id: "municipal-revenue-intelligence",
-                title: "Municipal Revenue & Infrastructure Intelligence",
-                icon: Landmark,
+                id: "municipal-revenue",
+                title: "Municipal Revenue & Property Intelligence",
+                icon: Building2,
                 offerings: [
                     {
-                        title: "Smart City Governance & Revenue Optimization",
-                        description: "Comprehensive aerial mapping and AI analytics for smart cities facing property tax leakages, unauthorized construction, and outdated land records.",
+                        title: "AI-Powered Urban Mapping & Revenue Intelligence",
+                        description: "High-resolution aerial mapping and AI analytics for property tax optimization and urban planning.",
                         features: [
-                            "Citywide Aerial Mapping: High-resolution orthomosaic and 3D mapping at ward and zone level for complete urban visibility",
-                            "AI Property & Encroachment Analytics: Detection of unassessed properties, additional floors, land-use changes, and boundary encroachments",
-                            "Revenue Intelligence Dashboards: Actionable insights for tax and planning teams to prioritize inspections and track revenue uplift",
-                            "Rail & Linear Corridor Monitoring: Automated inspections of tracks, embankments, OHE, bridges with AI defect detection"
+                            "Citywide Aerial Mapping: High-resolution orthomosaic and 3D mapping at ward and zone level for complete, current urban visibility",
+                            "AI-Based Property & Encroachment Analytics: Detection of unassessed properties, additional floors, land-use changes, and boundary encroachments",
+                            "Revenue Intelligence Dashboards: Actionable dashboards for tax and planning teams to prioritise inspections, validate findings, and track revenue uplift",
+                            "Municipal ERP Integration: Secure data governance with integration to property-tax platforms and full audit trails"
                         ]
                     }
                 ],
                 benefits: [
                     {
                         title: "Revenue Uplift",
-                        description: "AI-based property detection identifies unassessed properties and unauthorized construction for tax recovery.",
+                        description: "AI-powered detection of unassessed properties and unauthorized construction increases tax collection.",
                         icon: TrendingUp
                     },
                     {
-                        title: "Municipal ERP Integration",
-                        description: "Secure data governance with integration into property-tax platforms and municipal management systems.",
-                        icon: Database
+                        title: "Data-Driven Planning",
+                        description: "Current, accurate urban mapping supports informed decision-making for city development.",
+                        icon: BarChart3
                     },
                     {
-                        title: "Audit-Ready Analytics",
-                        description: "Defensible analytics and documentation for legal scrutiny and regulatory compliance.",
+                        title: "Legal Defensibility",
+                        description: "Audit-ready analytics and secure data governance withstand legal and regulatory scrutiny.",
                         icon: FileCheck
                     }
                 ]
             },
             {
                 id: "infrastructure-monitoring",
-                title: "Infrastructure & Asset Monitoring",
-                icon: Building2,
+                title: "Rail, Bridges & Infrastructure Monitoring",
+                icon: Layers,
                 offerings: [
                     {
-                        title: "Comprehensive Infrastructure Intelligence",
-                        description: "Advanced monitoring for bridges, dams, pipelines, roads, and critical infrastructure requiring inspection-grade documentation.",
+                        title: "Automated Infrastructure Inspection",
+                        description: "AI-assisted defect detection for rail corridors, bridges, dams, pipelines, and critical infrastructure.",
                         features: [
-                            "Bridges & Structural Health: Close-range visual inspections of decks, piers, bearings, cables without scaffolding or traffic closures",
-                            "AI-Assisted Defect Identification: Detection of cracks, spalling, corrosion, deformation with time-based digital defect records",
-                            "Dams, Lakes & Canals: Shoreline change detection, siltation analysis, illegal dumping identification, and embankment monitoring",
-                            "Pipelines & Utility Corridors: Leak detection, temperature anomalies, vegetation stress, exposed pipes, unauthorized excavation"
+                            "Rail Corridor Patrol Flights: Automated inspections of tracks, ballast, embankments, OHE, bridges, and level crossings using RGB and thermal sensors",
+                            "Bridge & Structural Health Monitoring: High-resolution imaging of decks, piers, bearings, joints, and cables without scaffolding or traffic closures",
+                            "AI Defect Detection: Early identification of cracks, spalling, corrosion, obstructions, vegetation overgrowth, and waterlogging",
+                            "Digital Twin Integration: Time-stamped, repeatable missions creating digital defect records for BIM and asset-management platforms"
                         ]
                     }
                 ],
                 benefits: [
                     {
-                        title: "Safe, Cost-Effective Inspections",
-                        description: "High-resolution imaging without scaffolding, traffic closures, or putting inspectors at risk.",
+                        title: "Safety & Cost Efficiency",
+                        description: "Drone inspections eliminate dangerous manual work and reduce costs associated with scaffolding and closures.",
                         icon: Shield
                     },
                     {
-                        title: "Digital Twin Integration",
-                        description: "Integration with BIM, structural models, and asset-management platforms for predictive maintenance.",
-                        icon: Database
+                        title: "Predictive Maintenance",
+                        description: "Early defect detection enables proactive repairs before failures occur, preventing costly downtime.",
+                        icon: Activity
                     },
                     {
-                        title: "Year-on-Year Comparison",
-                        description: "Time-stamped, repeatable missions create consistent datasets for tracking structural degradation.",
-                        icon: BarChart3
+                        title: "Inspection-Grade Documentation",
+                        description: "High-resolution imagery and consistent datasets support engineering analysis and regulatory compliance.",
+                        icon: FileCheck
                     }
                 ]
             },
             {
-                id: "platform-operations",
-                title: "Unified Drone Operations Platform",
-                icon: MonitorDot,
+                id: "private-security-drones",
+                title: "Private Security Drone Operations & Event Management",
+                icon: Shield,
                 offerings: [
                     {
-                        title: "Enterprise-Grade Aerial Intelligence Platform",
-                        description: "Single, compliant, AI-powered drone operations platform delivering real-time insight, operational control, and measurable outcomes across all verticals.",
+                        title: "AI-Enabled Aerial Security for High-Risk Environments",
+                        description: "Autonomous drone surveillance extending ground security forces for corporate campuses, events, and VIP protection.",
                         features: [
-                            "Central Drone Operations Centre: Fleet management, mission planning, live monitoring, and predictive health monitoring",
-                            "AI & Analytics Engine: Tuned for crowds, defects, encroachments, and anomalies by sector with automated insights",
-                            "Secure Data & Integration Layer: Encrypted communications and APIs into SOCs, GIS, ERP, HIS, and project systems",
-                            "Compliance & Safety Framework: Aviation rules, data protection, security governance, and audit-ready documentation"
+                            "Aerial Guarding & Perimeter Surveillance: Autonomous and on-demand drone patrols covering large perimeters, rooftops, and blind zones with live video/thermal feeds",
+                            "Alarm-Triggered Drone Response: Instant drone dispatch linked to intrusion alarms, access-control events, or SOS triggers providing live aerial view",
+                            "Event Security & Crowd Management: Real-time crowd density analytics, flow monitoring, and early warning alerts for overcrowding and stampede risks",
+                            "VIP Protection & High-Threat Monitoring: Aerial route/venue surveillance with suspicious activity detection for close-protection operations",
+                            "Night & Low-Visibility Operations: Thermal and low-light imaging for night patrols, power outages, fog, or adverse weather conditions"
                         ]
                     }
                 ],
                 benefits: [
                     {
-                        title: "Single Platform, All Services",
-                        description: "Unified operations across security, healthcare, infrastructure, logistics, and governance use cases.",
-                        icon: Layers
+                        title: "Extended Security Coverage",
+                        description: "Drones complement manned guarding by covering vast areas, blind spots, and inaccessible zones cost-effectively.",
+                        icon: Eye
                     },
                     {
-                        title: "Regulatory Compliance",
-                        description: "Full adherence to aviation regulations, data protection laws, and operational safety standards.",
-                        icon: BadgeCheck
+                        title: "Rapid Threat Response",
+                        description: "Alarm-triggered deployment provides security supervisors immediate aerial intelligence before ground teams arrive.",
+                        icon: Zap
+                    },
+                    {
+                        title: "Event Safety Assurance",
+                        description: "Real-time crowd analytics prevent dangerous overcrowding and enable coordinated emergency response.",
+                        icon: Users
+                    }
+                ]
+            },
+            {
+                id: "unified-drone-platform",
+                title: "Unified Aerial Intelligence Platform",
+                icon: Cpu,
+                offerings: [
+                    {
+                        title: "Enterprise-Grade Drone Operations Centre",
+                        description: "Single platform for safe, compliant, AI-powered drone operations across all use cases and industries.",
+                        features: [
+                            "Central Drone Operations Centre: Fleet management, mission planning, and live monitoring for multi-site operations",
+                            "AI & Analytics Engine: Sector-tuned algorithms for crowds, defects, encroachments, and anomalies across security, healthcare, infrastructure, and governance",
+                            "Secure Data & Integration Layer: Encrypted communications and APIs into SOCs, GIS, ERP, HIS, and project management systems",
+                            "Compliance & Audit Framework: Complete flight logs, audit trails, and regulatory-aligned workflows for aviation and operational safety standards"
+                        ]
+                    }
+                ],
+                benefits: [
+                    {
+                        title: "Unified Operations",
+                        description: "Single platform manages all drone services across security, logistics, healthcare, and infrastructure applications.",
+                        icon: Network
                     },
                     {
                         title: "Actionable Intelligence",
-                        description: "AI-powered analytics deliver insights and recommendations, not just raw imagery or video feeds.",
-                        icon: Activity
+                        description: "AI-powered analytics deliver insights and recommendations, not just raw imagery and data.",
+                        icon: BarChart3
+                    },
+                    {
+                        title: "Enterprise Integration",
+                        description: "Seamless connectivity with existing command centres, SOCs, and enterprise systems for unified operations.",
+                        icon: Wifi
                     }
                 ]
             }
         ],
-        closingStatement: "ISI India's Aerial Intelligence & Drone Services transform how organizations see, secure, and serve. From preventing stampedes at public gatherings to delivering life-saving medicines in remote areas, from detecting tax evasion to inspecting critical infrastructure, our autonomous drone platform delivers mission-critical intelligence you can trust. One platform. Real-time decisions. Measurable outcomes. Experience the future of aerial intelligence."
+        closingStatement: "ISI India's Aerial Intelligence & Drone Services platform delivers autonomous, AI-powered drone operations you can trust. From private security and event management to healthcare logistics, infrastructure monitoring, and smart city governance, we provide mission-critical aerial intelligence that transforms how organizations protect assets, save lives, and optimize operations. With enterprise-grade security, regulatory compliance, and seamless integration, we're the single platform for all your aerial intelligence needs."
     }
 ];
 

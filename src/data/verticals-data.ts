@@ -538,53 +538,5 @@ export const verticalsData: Record<string, any> = {
                 ]
             }
         ]
-    },
-    "drones": {
-        title: "Aerial Intelligence & Drone Services",
-        subtitle: "Autonomous Aerial Intelligence. Real-Time Decisions. Trusted Outcomes.",
-        icon: Plane,
-        video: "https://videos.pexels.com/video-files/2022396/2022396-hd_1920_1080_30fps.mp4",
-        poster: verticalsSurveillance,
-        partners: [
-            { name: "Smart Cities Mission", logo: "/logos/smartcities.png" },
-            { name: "NHAI", logo: "/logos/nhai.png" },
-            { name: "Indian Railways", logo: "/logos/indianrailways.png" },
-            { name: "State Health Departments", logo: "/logos/health.png" }
-        ],
-        sections: [
-            {
-                title: "Drone Security & Crowd Monitoring",
-                icon: Users,
-                image: verticalsSurveillance,
-                description: "AI-powered autonomous drone operations for public gatherings, events, campuses, and critical infrastructure.",
-                features: [
-                    { title: "Autonomous Perimeter Patrols", desc: "AI-guided patrol routes with event-triggered dispatch integrated with alarms and surveillance systems." },
-                    { title: "AI Crowd Intelligence", desc: "Overhead crowd counting, density heatmaps, flow analysis, and stampede-risk early warnings." },
-                    { title: "Incident Overwatch", desc: "Rapid aerial deployment during emergencies providing unified aerial view for command coordination." }
-                ]
-            },
-            {
-                title: "Drone Logistics & Medical Services",
-                icon: Truck,
-                image: verticalsFacility,
-                description: "Time-critical autonomous delivery for healthcare, industrial campuses, and remote areas.",
-                features: [
-                    { title: "Medical Supply Distribution", desc: "On-demand delivery of medicines, vaccines, blood, and diagnostic samples to remote areas." },
-                    { title: "Campus Drone Logistics", desc: "Scheduled missions between fixed landing pads for industrial plants, ports, and SEZs." },
-                    { title: "Cold-Chain Compliance", desc: "Temperature-controlled pods for blood, organs, and vaccines with complete traceability." }
-                ]
-            },
-            {
-                title: "Municipal & Infrastructure Intelligence",
-                icon: Building2,
-                image: verticalsMep,
-                description: "Aerial mapping and AI analytics for smart cities, infrastructure monitoring, and revenue optimization.",
-                features: [
-                    { title: "Property Tax Intelligence", desc: "AI detection of unassessed properties, unauthorized construction, and encroachments." },
-                    { title: "Infrastructure Inspections", desc: "Bridges, dams, pipelines, and rail corridor monitoring with AI defect detection." },
-                    { title: "Revenue Dashboards", desc: "Actionable insights for municipal planning teams with audit-ready documentation." }
-                ]
-            }
-        ]
     }
 };
