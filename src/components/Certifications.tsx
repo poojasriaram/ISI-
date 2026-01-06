@@ -1,25 +1,30 @@
 import { Award, CheckCircle2 } from "lucide-react";
+import ISO from "@/assets/ISO.png";
+import PSARA from "@/assets/PSARA.png";
+import RBI from "@/assets/RBI.png";
+import DGCA from "@/assets/DGCA.png";
+
 
 const certifications = [
     {
         name: "ISO 9001:2015",
         description: "Quality Management System",
-        image: "/src/assets/ISO.png",
+        image: ISO,
     },
     {
         name: "PSARA Licensed",
         description: "Private Security Agency",
-        image: "/src/assets/PSARA.png",
+        image: PSARA,
     },
     {
         name: "RBI Empanelled",
         description: "Reserve Bank of India",
-        image: "/src/assets/RBI.png",
+        image: RBI,
     },
     {
         name: "DGCA Approved",
         description: "Aviation Security",
-        image: "/src/assets/DGCA.png",
+        image: DGCA,
     },
 ];
 

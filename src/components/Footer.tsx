@@ -15,23 +15,36 @@ const XIcon = ({ className }: { className?: string }) => (
 );
 
 const footerLinks = {
-  company: [
-    { name: "About Us", href: "#" },
-    { name: "Leadership", href: "#" },
-    { name: "News & Media", href: "#" },
-    { name: "CSR Initiatives", href: "#" },
+  verticals: [
+    { name: "Secure Value Logistics", href: "/verticals#logistics" },
+    { name: "Hospitality & Events", href: "/verticals#hospitality" },
+    { name: "BFSI Sector", href: "/verticals#bfsi" },
+    { name: "Education Sector", href: "/verticals#education" },
+    { name: "Manufacturing & Defence", href: "/verticals#manufacturing" },
+    { name: "Healthcare Security", href: "/verticals#healthcare" },
+    { name: "Drone Services", href: "/verticals#drones" },
   ],
   services: [
-    { name: "Guarding Services", href: "#services" },
-    { name: "Electronic Security", href: "#services" },
-    { name: "Risk Consulting", href: "#services" },
-    { name: "Background Verification", href: "#services" },
+    { name: "Guarding & On-Site Security", href: "/offerings#core-security" },
+    { name: "Electronic Security Systems", href: "/offerings#core-security" },
+    { name: "Remote Monitoring & SOC", href: "/offerings#core-security" },
+    { name: "Cyber-Physical Security", href: "/offerings#core-security" },
+    { name: "Secure Logistics", href: "/offerings#core-security" },
+    { name: "Risk Consulting", href: "/offerings#core-security" },
+    { name: "Background Verification", href: "/offerings#core-security" },
   ],
-  resources: [
-    { name: "Case Studies", href: "#" },
-    { name: "Whitepapers", href: "#" },
-    { name: "Blog", href: "#" },
-    { name: "FAQs", href: "#" },
+  company: [
+    { name: "About Us", href: "/about" },
+    { name: "Our Capabilities", href: "/capabilities" },
+    { name: "Our Customers", href: "/customers" },
+    { name: "Partners", href: "/partners" },
+    { name: "Careers", href: "/career" },
+    { name: "Contact Us", href: "/contact" },
+  ],
+  contact: [
+    { name: "Gandhi Nagar, Madurai – 625 020", href: "/contact", icon: "MapPin" },
+    { name: "+91 98949 99955", href: "tel:+919894999955", icon: "Phone" },
+    { name: "mdu@isisecurity.in", href: "mailto:mdu@isisecurity.in", icon: "Mail" },
   ],
 };
 
@@ -41,128 +54,16 @@ export const Footer = () => {
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px]" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px]" />
 
-      {/* Newsletter Section */}
-      <div className="border-b border-background/10 relative">
-        <div className="container mx-auto px-4 lg:px-8 py-8">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
-            <div className="text-center lg:text-left">
-              <h3 className="text-2xl lg:text-3xl font-bold text-background mb-2">
-                Stay Updated on Security Insights
-              </h3>
-              <p className="text-background/60">Get the latest news, trends, and best practices delivered to your inbox.</p>
-            </div>
-            <div className="flex w-full lg:w-auto gap-3">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 lg:w-80 px-5 py-3 rounded-xl bg-background/10 border border-background/20 text-background placeholder:text-background/40 focus:outline-none focus:border-primary"
-              />
-              <Button className="gap-2 px-6 shadow-lg shadow-primary/30">
-                Subscribe
-                <ArrowRight className="w-4 h-4" />
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Main Footer */}
-      <div className="container mx-auto px-4 lg:px-8 pt-8 pb-12 relative">
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12">
-          {/* Brand */}
-          <div className="lg:col-span-2">
-            <img
-              src={isiLogo}
-              alt="ISI Logo"
-              className="brightness-0 invert mb-4"
-              style={{ width: '174.356px', height: '56px' }}
-            />
-            <div className="flex items-center gap-2 mb-6">
-              <Shield className="w-4 h-4 text-primary" />
-              <p className="text-background/80 text-sm font-medium tracking-wide italic">
-                Your Trusted Shield Since 1985
-              </p>
-            </div>
-            <p className="text-background/70 mb-6 max-w-sm leading-relaxed">
-              Industrial Security & Intelligence (I) Pvt. Ltd. - India's trusted partner for
-              comprehensive security solutions since 1985.
-            </p>
-
-            {/* Contact Info */}
-            <div className="space-y-3 text-sm text-background/70 mb-6">
-              <div className="flex items-center gap-3 hover:text-background transition-colors cursor-pointer">
-                <div className="w-8 h-8 rounded-lg bg-background/10 flex items-center justify-center">
-                  <MapPin className="w-4 h-4" />
-                </div>
-                <span>Gandhi Nagar, Madurai – 625 020</span>
-              </div>
-              <div className="flex items-center gap-3 hover:text-background transition-colors cursor-pointer">
-                <div className="w-8 h-8 rounded-lg bg-background/10 flex items-center justify-center">
-                  <Phone className="w-4 h-4" />
-                </div>
-                <span>+91 98949 99955</span>
-              </div>
-              <div className="flex items-center gap-3 hover:text-background transition-colors cursor-pointer">
-                <div className="w-8 h-8 rounded-lg bg-background/10 flex items-center justify-center">
-                  <Mail className="w-4 h-4" />
-                </div>
-                <span>mdu@isisecurity.in</span>
-              </div>
-            </div>
-
-            {/* Social Links */}
-            <div className="flex items-center gap-3 mb-8">
-              <a
-                href="https://www.youtube.com/@isiguards"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-xl bg-background/10 flex items-center justify-center text-background/60 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-              >
-                <Youtube className="w-5 h-5" />
-              </a>
-              <a
-                href="https://x.com/isiguards"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-xl bg-background/10 flex items-center justify-center text-background/60 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-              >
-                <XIcon className="w-5 h-5" />
-              </a>
-              <a
-                href="https://www.facebook.com/isiguards"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-xl bg-background/10 flex items-center justify-center text-background/60 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-              >
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a
-                href="https://www.instagram.com/isiguards/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-xl bg-background/10 flex items-center justify-center text-background/60 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-              >
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a
-                href="https://www.linkedin.com/company/isiguards"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-xl bg-background/10 flex items-center justify-center text-background/60 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-            </div>
-          </div>
-
-          {/* Links */}
+      <div className="container mx-auto px-4 lg:px-8 py-8 relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-12">
+          {/* Industry Verticals */}
           <div>
-            <h4 className="font-semibold text-background mb-6 flex items-center gap-2">
-              <span className="w-8 h-0.5 bg-primary rounded" />
-              Company
+            <h4 className="font-bold text-background mb-6 text-lg">
+              Industry Verticals
             </h4>
             <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
+              {footerLinks.verticals.map((link) => (
                 <li key={link.name}>
                   <a href={link.href} className="text-sm text-background/60 hover:text-background hover:translate-x-1 transition-all inline-block">
                     {link.name}
@@ -172,9 +73,9 @@ export const Footer = () => {
             </ul>
           </div>
 
+          {/* Services */}
           <div>
-            <h4 className="font-semibold text-background mb-6 flex items-center gap-2">
-              <span className="w-8 h-0.5 bg-primary rounded" />
+            <h4 className="font-bold text-background mb-6 text-lg">
               Services
             </h4>
             <ul className="space-y-3">
@@ -188,13 +89,13 @@ export const Footer = () => {
             </ul>
           </div>
 
+          {/* Company */}
           <div>
-            <h4 className="font-semibold text-background mb-6 flex items-center gap-2">
-              <span className="w-8 h-0.5 bg-primary rounded" />
-              Resources
+            <h4 className="font-bold text-background mb-6 text-lg">
+              Company
             </h4>
             <ul className="space-y-3">
-              {footerLinks.resources.map((link) => (
+              {footerLinks.company.map((link) => (
                 <li key={link.name}>
                   <a href={link.href} className="text-sm text-background/60 hover:text-background hover:translate-x-1 transition-all inline-block">
                     {link.name}
@@ -203,10 +104,107 @@ export const Footer = () => {
               ))}
             </ul>
           </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="font-bold text-background mb-6 text-lg">
+              Contact
+            </h4>
+            <ul className="space-y-3">
+              {footerLinks.contact.map((link) => (
+                <li key={link.name}>
+                  <a href={link.href} className="text-sm text-background/60 hover:text-background hover:translate-x-1 transition-all inline-block flex items-start gap-2">
+                    {link.icon === "MapPin" && <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />}
+                    {link.icon === "Phone" && <Phone className="w-4 h-4 mt-0.5 flex-shrink-0" />}
+                    {link.icon === "Mail" && <Mail className="w-4 h-4 mt-0.5 flex-shrink-0" />}
+                    <span>{link.name}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Logo & Newsletter */}
+          <div className="col-span-1 md:col-span-2 lg:col-span-2 lg:pl-8 lg:border-l lg:border-background/20">
+            <img
+              src={isiLogo}
+              alt="ISI Logo"
+              className="brightness-0 invert mb-4"
+              style={{ width: '230px', height: '70px' }}
+            />
+            <p className="text-background/80 text-sm font-medium mb-4" style={{ letterSpacing: '0.040em' }}>
+              Your Trusted Shield Since 1985
+            </p>
+            <p className="text-background/70 mb-6 leading-relaxed text-sm">
+              Industrial Security & Intelligence (I) Pvt. Ltd. - India's trusted partner for
+              comprehensive security solutions since 1985.
+            </p>
+
+            {/* Newsletter Signup */}
+            <div className="mb-6">
+              <h4 className="font-bold text-background mb-3 text-base">
+                Signup for Updates
+              </h4>
+              <div className="flex flex-col gap-2">
+                <input
+                  type="email"
+                  placeholder="Enter your mail..."
+                  className="w-full px-4 py-2.5 rounded-lg bg-background/10 border border-background/20 text-background text-sm placeholder:text-background/40 focus:outline-none focus:border-primary"
+                />
+                <Button className="w-full gap-2 shadow-lg shadow-primary/30">
+                  Submit
+                </Button>
+              </div>
+            </div>
+
+            {/* Social Links */}
+            <div className="flex items-center gap-2 mb-6">
+              <a
+                href="https://www.linkedin.com/company/isiguards"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-lg bg-background/10 flex items-center justify-center text-background/60 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+              >
+                <Linkedin className="w-4 h-4" />
+              </a>
+              <a
+                href="https://www.instagram.com/isiguards/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-lg bg-background/10 flex items-center justify-center text-background/60 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+              >
+                <Instagram className="w-4 h-4" />
+              </a>
+              <a
+                href="https://www.youtube.com/@isiguards"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-lg bg-background/10 flex items-center justify-center text-background/60 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+              >
+                <Youtube className="w-4 h-4" />
+              </a>
+              <a
+                href="https://x.com/isiguards"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-lg bg-background/10 flex items-center justify-center text-background/60 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+              >
+                <XIcon className="w-4 h-4" />
+              </a>
+              <a
+                href="https://www.facebook.com/isiguards"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-lg bg-background/10 flex items-center justify-center text-background/60 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+              >
+                <Facebook className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
         </div>
 
         {/* Bottom */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-background/10">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 mt-8 border-t border-background/10">
           <p className="text-sm text-background/50">
             © {new Date().getFullYear()} Industrial Security & Intelligence (I) Pvt. Ltd. All rights reserved.
           </p>

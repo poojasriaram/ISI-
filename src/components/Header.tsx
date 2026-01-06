@@ -182,9 +182,9 @@ export const Header = () => {
               src={isiLogo}
               alt="ISI Security"
               className="transition-transform duration-300 group-hover:scale-105"
-              style={{ width: '180px', height: '58px' }}
+              style={{ width: '215px', height: '60px' }}
             />
-            <p className="text-[11px] text-primary font-medium tracking-wide italic">
+            <p className="text-[11px] text-primary font-bold tracking-wide">
               Your Trusted Shield Since 1985
             </p>
           </Link>

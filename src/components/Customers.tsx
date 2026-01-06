@@ -24,45 +24,114 @@ const testimonials = [
   },
 ];
 
-const clientLogos = [
-  { name: "Bosch", abbr: "Bosch", color: "#22409A", image: "/logos/Bosch_Global_Software_Tech._Pvt_Ltd-removebg-preview.png" },
-  { name: "Ramco Group", abbr: "Ramco", color: "#004C8F", image: "/logos/Ramco_Group-removebg-preview.png" },
-  { name: "Ramco Cements Limited", abbr: "Ramco Cements", color: "#0052B4", image: "/logos/Ramco_Cements_Limited-removebg-preview.png" },
-  { name: "Murugappa Group", abbr: "Murugappa", color: "#486AAA", image: "/logos/Murugappa Group.png" },
-  { name: "Tubes Investment of India Limited", abbr: "TII", color: "#007CC3", image: "/logos/Tubes_Investment_ot_India_Limited-removebg-preview.png" },
-  { name: "Carborundum Universal Limited", abbr: "CUMI", color: "#341C53", image: "/logos/Carborundum_UniversalLimited-removebg-preview.png" },
-  { name: "EID Parry (India) Limited", abbr: "EID Parry", color: "#002855", image: "/logos/EID_Parry__India__Limited-removebg-preview.png" },
-  { name: "Zoho", abbr: "Zoho", color: "#003087", image: "/logos/Zoho_Corporation-removebg-preview.png" },
-  { name: "Gofrugal Technologies Private Limited", abbr: "Gofrugal", color: "#F37021", image: "/logos/Gofrugal_Technologies_Private_Limited-removebg-preview.png" },
-  { name: "Aardhraa Technologies", abbr: "Aardhraa", color: "#800000", image: "/logos/Aardhraa_Technologies-removebg-preview.png" },
-  { name: "ITC Limited", abbr: "ITC", color: "#ED1C24", image: "/logos/ITC Limited.png" },
-  { name: "VinFast", abbr: "VinFast", color: "#0066B2", image: "/logos/VInfast.png" },
-  { name: "BYD India Pvt Ltd", abbr: "BYD", color: "#0066B2", image: "/logos/BYD_INDIA_PVT_LTD-removebg-preview.png" },
-  { name: "Britannia Industries Limited", abbr: "Britannia", color: "#ED1C24", image: "/logos/BRITANNIA_INDUSTRIES_LIMITED-removebg-preview.png" },
-  { name: "Taj Group", abbr: "Taj", color: "#ED1C24", image: "/logos/Taj_Group-removebg-preview.png" },
-  { name: "CMC", abbr: "CMC", color: "#E60000", image: "/logos/CMC.png" },
-  { name: "Marriott Bonvoy", abbr: "Marriott", color: "#006838", image: "/logos/Marriott Bonvoy.png" },
-  { name: "HDFC Bank", abbr: "HDFC", color: "#0066B2", image: "/logos/HDFC.png" },
-  { name: "State Bank of India", abbr: "SBI", color: "#000000", image: "/logos/SBI-removebg-preview.png" },
-  { name: "Canara Bank", abbr: "Canara", color: "#0066B2", image: "/logos/Canara Bank.png" },
-  { name: "Indian Bank", abbr: "Indian Bank", color: "#0066B2", image: "/logos/Indian Bank.png" },
-  { name: "MTC Group", abbr: "MTC", color: "#ED1C24", image: "/logos/MTC_GROUP-removebg-preview.png" },
-  { name: "Tata Group", abbr: "TATA", color: "#ED1C24", image: "/logos/TATA.png" },
-  { name: "Sanmar Group", abbr: "Sanmar", color: "#0066B2", image: "/logos/Sanmar_Group-removebg-preview.png" },
-  { name: "Sanmar Matrix Metals Limited", abbr: "Sanmar Matrix", color: "#ED1C24", image: "/logos/Sanmar_Matrix_Metals_Limited-removebg-preview.png" },
-  { name: "XOMOX Sanmar Ltd", abbr: "XOMOX", color: "#0066B2", image: "/logos/XOMOX_Sanmar_Ltd-removebg-preview.png" },
-  { name: "Anderson Greenwood Crosby Sanmar Limited", abbr: "AGC Sanmar", color: "#006838", image: "/logos/Anderson_Green_Wood_Crosby_Sanmar_Limited-removebg-preview.png" },
-  { name: "Intersnack Group", abbr: "Intersnack", color: "#FFD700", image: "/logos/Intersnack Group.png" },
-  { name: "Velammal Institutions", abbr: "Velammal", color: "#0066B2", image: "/logos/Velammal_Medical_College_b_Research_Centre-removebg-preview.png" },
-  { name: "TZMO Global", abbr: "TZMO", color: "#ED1C24", image: "/logos/TZMO-Global-removebg-preview.png" },
-  { name: "LGB Group", abbr: "LGB", color: "#0066B2", image: "/logos/LGB___Brothers_Limited-removebg-preview.png" },
-  { name: "Marico Limited", abbr: "Marico", color: "#006838", image: "/logos/MARICO_LIMITED-removebg-preview.png" },
-  { name: "Chinmaya School", abbr: "Chinmaya", color: "#ED1C24", image: "/logos/CHINMAYA_SCHOOL-removebg-preview.png" },
-  { name: "Thangamayil Jewellery", abbr: "Thangamayil", color: "#0066B2", image: "/logos/Thangamayil_Jewellery-removebg-preview.png" },
-  { name: "Zamil Steels", abbr: "Zamil", color: "#ED1C24", image: "/logos/Zamil Steels.png" },
-  { name: "Vikram Solar", abbr: "Vikram Solar", color: "#0066B2", image: "/logos/Vikram Solar.png" },
-  { name: "Aravind Eye Hospital", abbr: "Aravind", color: "#006838", image: "/logos/Aravind_Eye_Hospital-removebg-preview.png" },
-  { name: "Amar Seva Sangam", abbr: "Amar Seva", color: "#0066B2", image: "/logos/Amar_Seva_Sangam-removebg-preview.png" },
+// Categorized client data by industry sector
+const clientsByIndustry = {
+  "Engineering / Manufacturing": [
+    { name: "Bosch", image: "/logos/Bosch_Global_Software_Tech._Pvt_Ltd-removebg-preview.png" },
+    { name: "Ramco Group", image: "/logos/Ramco_Group-removebg-preview.png" },
+    { name: "Ramco Cements Limited", image: "/logos/Ramco_Cements_Limited-removebg-preview.png" },
+    { name: "Murugappa Group", image: "/logos/Murugappa Group.png" },
+    { name: "Tubes Investment of India Limited", image: "/logos/Tubes_Investment_ot_India_Limited-removebg-preview.png" },
+    { name: "Carborundum Universal Limited", image: "/logos/Carborundum_UniversalLimited-removebg-preview.png" },
+    { name: "EID Parry (India) Limited", image: "/logos/EID_Parry__India__Limited-removebg-preview.png" },
+    { name: "TATA", image: "/logos/TATA.png" },
+    { name: "Sanmar Group", image: "/logos/Sanmar_Group-removebg-preview.png" },
+    { name: "Sanmar Matrix Metals Limited", image: "/logos/Sanmar_Matrix_Metals_Limited-removebg-preview.png" },
+    { name: "XOMOX Sanmar Ltd", image: "/logos/XOMOX_Sanmar_Ltd-removebg-preview.png" },
+    { name: "Anderson Greenwood Crosby Sanmar Limited", image: "/logos/Anderson_Green_Wood_Crosby_Sanmar_Limited-removebg-preview.png" },
+    { name: "VinFast", image: "/logos/VInfast.png" },
+    { name: "BYD India Pvt Ltd", image: "/logos/BYD_INDIA_PVT_LTD-removebg-preview.png" },
+    { name: "Britannia Industries Limited", image: "/logos/BRITANNIA_INDUSTRIES_LIMITED-removebg-preview.png" },
+    { name: "MTC Group", image: "/logos/MTC_GROUP-removebg-preview.png" },
+    { name: "Intersnack Group", image: "/logos/Intersnack Group.png" },
+    { name: "TZMO Global", image: "/logos/TZMO-Global-removebg-preview.png" },
+    { name: "LGB Group", image: "/logos/LGB___Brothers_Limited-removebg-preview.png" },
+    { name: "Marico Limited", image: "/logos/MARICO_LIMITED-removebg-preview.png" },
+    { name: "Zamil Steels", image: "/logos/Zamil Steels.png" },
+    { name: "Vikram Solar", image: "/logos/Vikram Solar.png" },
+    { name: "Milkymist", image: "/logos/Milkymist.png" },
+    { name: "Chemplast", image: "/logos/Chemplast.png" },
+  ],
+};
+
+// Smaller sections grouped for better layout
+const smallSectionsRow1 = [
+  {
+    title: "IT & ITES Services",
+    companies: [
+      { name: "Zoho", image: "/logos/Zoho_Corporation-removebg-preview.png" },
+      { name: "Gofrugal Technologies Private Limited", image: "/logos/Gofrugal_Technologies_Private_Limited-removebg-preview.png" },
+      { name: "Aardhraa Technologies", image: "/logos/Aardhraa_Technologies-removebg-preview.png" },
+    ],
+  },
+  {
+    title: "Hospitality & Tourism",
+    companies: [
+      { name: "ITC Limited", image: "/logos/ITC Limited.png" },
+      { name: "Taj Group", image: "/logos/Taj_Group-removebg-preview.png" },
+      { name: "Marriott Bonvoy", image: "/logos/Marriott Bonvoy.png" },
+    ],
+  },
+];
+
+const smallSectionsRow2 = [
+  {
+    title: "Healthcare",
+    companies: [
+      { name: "CMC", image: "/logos/CMC.png" },
+      { name: "Velammal", image: "/logos/Velammal_Medical_College_b_Research_Centre-removebg-preview.png" },
+      { name: "Aravind Eye Hospital", image: "/logos/Aravind_Eye_Hospital-removebg-preview.png" },
+    ],
+  },
+  {
+    title: "BFSI",
+    companies: [
+      { name: "HDFC", image: "/logos/HDFC.png" },
+      { name: "State Bank of India", image: "/logos/SBI-removebg-preview.png" },
+      { name: "Canara Bank", image: "/logos/Canara Bank.png" },
+      { name: "Indian Bank", image: "/logos/Indian Bank.png" },
+    ],
+  },
+];
+
+const smallSectionsRow3 = [
+  {
+    title: "Education",
+    companies: [
+      { name: "Chinmaya School", image: "/logos/CHINMAYA_SCHOOL-removebg-preview.png" },
+    ],
+  },
+  {
+    title: "Retail & Wholesale",
+    companies: [
+      { name: "Thangamayil Jewellery", image: "/logos/Thangamayil_Jewellery-removebg-preview.png" },
+      { name: "Prince Jewellery", image: "/logos/Prince_Jewellery.png" },
+    ],
+  },
+];
+
+const smallSectionsRow4 = [
+  {
+    title: "NGO",
+    companies: [
+      { name: "Amar Seva Sangam", image: "/logos/Amar_Seva_Sangam-removebg-preview.png" },
+    ],
+  },
+  {
+    title: "Construction & Infrastructure",
+    companies: [
+      { name: "Estancia", image: "/logos/Estancia.png" },
+    ],
+  },
+];
+
+const smallSectionsRow5 = [
+  {
+    title: "Logistics & Transportation",
+    companies: [
+      { name: "Cipla", image: "/logos/Cipla.png" },
+    ],
+  },
 ];
 
 export const Customers = () => {
@@ -120,106 +189,175 @@ export const Customers = () => {
           ))}
         </div>
 
-        {/* Client Logos Grid */}
-        <div className="text-center">
-          <p className="text-sm text-muted-foreground mb-8 font-medium">Trusted by 500+ organizations including</p>
+        {/* Client Logos by Industry Sector */}
+        <div className="space-y-16">
+          {/* Engineering / Manufacturing - Full Width */}
+          {Object.entries(clientsByIndustry).map(([sector, companies]) => (
+            <div key={sector} className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-8 hover:border-primary/30 transition-colors duration-300">
+              {/* Sector Header */}
+              <div className="text-center mb-8">
+                <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+                  {sector}
+                </h3>
+                <div className="w-24 h-1 bg-primary/30 mx-auto rounded-full" />
+              </div>
 
-          <div className="space-y-6">
-            {/* Row 1 - 7 logos */}
-            <div className="grid grid-cols-4 md:grid-cols-7 gap-6 justify-items-center">
-              {clientLogos.slice(0, 7).map((logo, index) => (
-                <div
-                  key={index}
-                  className="flex items-center justify-center px-4 py-3 w-full h-[80px]"
-                >
-                  <img
-                    src={logo.image}
-                    alt={logo.name}
-                    className="max-h-[60px] w-auto max-w-full object-contain"
-                  />
-                </div>
-              ))}
+              {/* Company Logos Grid */}
+              <div className="flex flex-wrap gap-6 justify-start">
+                {companies.map((company, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center justify-center px-4 py-3 w-[calc(50%-12px)] md:w-[calc(25%-18px)] h-[80px]"
+                  >
+                    <img
+                      src={company.image}
+                      alt={company.name}
+                      className="max-h-[60px] w-auto max-w-full object-contain"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
+          ))}
 
-            {/* Row 2 - 7 logos */}
-            <div className="grid grid-cols-4 md:grid-cols-7 gap-6 justify-items-center">
-              {clientLogos.slice(7, 14).map((logo, index) => (
-                <div
-                  key={index}
-                  className="flex items-center justify-center px-4 py-3 w-full h-[80px]"
-                >
-                  <img
-                    src={logo.image}
-                    alt={logo.name}
-                    className="max-h-[60px] w-auto max-w-full object-contain"
-                  />
+          {/* Row 1: IT & ITES Services + Hospitality & Tourism */}
+          <div className="grid md:grid-cols-2 gap-12">
+            {smallSectionsRow1.map((section) => (
+              <div key={section.title} className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-6 hover:border-primary/30 transition-colors duration-300">
+                <div className="text-center mb-6">
+                  <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">
+                    {section.title}
+                  </h3>
+                  <div className="w-20 h-1 bg-primary/30 mx-auto rounded-full" />
                 </div>
-              ))}
-            </div>
+                <div className="flex flex-wrap gap-4 justify-center">
+                  {section.companies.map((company, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center justify-center px-4 py-3 w-[calc(50%-8px)] h-[80px]"
+                    >
+                      <img
+                        src={company.image}
+                        alt={company.name}
+                        className="max-h-[60px] w-auto max-w-full object-contain"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
 
-            {/* Row 3 - 6 logos */}
-            <div className="grid grid-cols-3 md:grid-cols-6 gap-6 justify-items-center">
-              {clientLogos.slice(14, 20).map((logo, index) => (
-                <div
-                  key={index}
-                  className="flex items-center justify-center px-4 py-3 w-full h-[80px]"
-                >
-                  <img
-                    src={logo.image}
-                    alt={logo.name}
-                    className="max-h-[60px] w-auto max-w-full object-contain"
-                  />
+          {/* Row 2: Healthcare + BFSI */}
+          <div className="grid md:grid-cols-2 gap-12">
+            {smallSectionsRow2.map((section) => (
+              <div key={section.title} className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-6 hover:border-primary/30 transition-colors duration-300">
+                <div className="text-center mb-6">
+                  <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">
+                    {section.title}
+                  </h3>
+                  <div className="w-20 h-1 bg-primary/30 mx-auto rounded-full" />
                 </div>
-              ))}
-            </div>
+                <div className="flex flex-wrap gap-4 justify-center">
+                  {section.companies.map((company, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center justify-center px-4 py-3 w-[calc(50%-8px)] h-[80px]"
+                    >
+                      <img
+                        src={company.image}
+                        alt={company.name}
+                        className="max-h-[60px] w-auto max-w-full object-contain"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
 
-            {/* Row 4 - 6 logos */}
-            <div className="grid grid-cols-3 md:grid-cols-6 gap-6 justify-items-center">
-              {clientLogos.slice(20, 26).map((logo, index) => (
-                <div
-                  key={index}
-                  className="flex items-center justify-center px-4 py-3 w-full h-[80px]"
-                >
-                  <img
-                    src={logo.image}
-                    alt={logo.name}
-                    className="max-h-[60px] w-auto max-w-full object-contain"
-                  />
+          {/* Row 3: Education + Retail & Wholesale */}
+          <div className="grid md:grid-cols-2 gap-12">
+            {smallSectionsRow3.map((section) => (
+              <div key={section.title} className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-6 hover:border-primary/30 transition-colors duration-300">
+                <div className="text-center mb-6">
+                  <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">
+                    {section.title}
+                  </h3>
+                  <div className="w-20 h-1 bg-primary/30 mx-auto rounded-full" />
                 </div>
-              ))}
-            </div>
+                <div className="flex flex-wrap gap-4 justify-center">
+                  {section.companies.map((company, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center justify-center px-4 py-3 w-[calc(50%-8px)] h-[80px]"
+                    >
+                      <img
+                        src={company.image}
+                        alt={company.name}
+                        className="max-h-[60px] w-auto max-w-full object-contain"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
 
-            {/* Row 5 - 6 logos */}
-            <div className="grid grid-cols-3 md:grid-cols-6 gap-6 justify-items-center">
-              {clientLogos.slice(26, 32).map((logo, index) => (
-                <div
-                  key={index}
-                  className="flex items-center justify-center px-4 py-3 w-full h-[80px]"
-                >
-                  <img
-                    src={logo.image}
-                    alt={logo.name}
-                    className="max-h-[60px] w-auto max-w-full object-contain"
-                  />
+          {/* Row 4: NGO + Construction & Infrastructure */}
+          <div className="grid md:grid-cols-2 gap-12">
+            {smallSectionsRow4.map((section) => (
+              <div key={section.title} className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-6 hover:border-primary/30 transition-colors duration-300">
+                <div className="text-center mb-6">
+                  <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">
+                    {section.title}
+                  </h3>
+                  <div className="w-20 h-1 bg-primary/30 mx-auto rounded-full" />
                 </div>
-              ))}
-            </div>
+                <div className="flex flex-wrap gap-4 justify-center">
+                  {section.companies.map((company, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center justify-center px-4 py-3 w-[calc(50%-8px)] h-[80px]"
+                    >
+                      <img
+                        src={company.image}
+                        alt={company.name}
+                        className="max-h-[60px] w-auto max-w-full object-contain"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
 
-            {/* Row 6 - 6 logos */}
-            <div className="grid grid-cols-3 md:grid-cols-6 gap-6 justify-items-center">
-              {clientLogos.slice(32, 38).map((logo, index) => (
-                <div
-                  key={index}
-                  className="flex items-center justify-center px-4 py-3 w-full h-[80px]"
-                >
-                  <img
-                    src={logo.image}
-                    alt={logo.name}
-                    className="max-h-[60px] w-auto max-w-full object-contain"
-                  />
+          {/* Row 5: Logistics & Transportation - Centered */}
+          <div className="max-w-md mx-auto">
+            {smallSectionsRow5.map((section) => (
+              <div key={section.title} className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-6 hover:border-primary/30 transition-colors duration-300">
+                <div className="text-center mb-6">
+                  <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">
+                    {section.title}
+                  </h3>
+                  <div className="w-20 h-1 bg-primary/30 mx-auto rounded-full" />
                 </div>
-              ))}
-            </div>
+                <div className="flex justify-center">
+                  {section.companies.map((company, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center justify-center px-4 py-3 w-[200px] h-[80px]"
+                    >
+                      <img
+                        src={company.image}
+                        alt={company.name}
+                        className="max-h-[60px] w-auto max-w-full object-contain"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
