@@ -123,6 +123,7 @@ const smallSectionsRow4 = [
       { name: "Estancia", image: "/logos/Estancia.png" },
     ],
   },
+  
 ];
 
 const smallSectionsRow5 = [
@@ -189,58 +190,80 @@ export const Customers = () => {
           ))}
         </div>
 
-        {/* Client Logos by Industry Sector */}
+        {/* Client Logos by Industry Sector - Masonry Layout */}
         <div className="space-y-16">
-          {/* Engineering / Manufacturing - Full Width */}
+          {/* Engineering / Manufacturing - Large Section */}
           {Object.entries(clientsByIndustry).map(([sector, companies]) => (
-            <div key={sector} className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-8 hover:border-primary/30 transition-colors duration-300">
+            <div key={sector} className="group relative bg-gradient-to-br from-card/60 to-card/40 backdrop-blur-sm border border-border/50 rounded-3xl p-10 hover:border-primary/30 transition-all duration-500 shadow-lg">
+              {/* Decorative Corner */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl" />
+
               {/* Sector Header */}
-              <div className="text-center mb-8">
-                <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+              <div className="text-center mb-12">
+                <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors duration-300">
                   {sector}
                 </h3>
-                <div className="w-24 h-1 bg-primary/30 mx-auto rounded-full" />
+                <div className="w-24 h-1 bg-gradient-to-r from-primary/30 via-primary to-primary/30 mx-auto rounded-full group-hover:w-32 transition-all duration-300" />
               </div>
 
-              {/* Company Logos Grid */}
-              <div className="flex flex-wrap gap-6 justify-start">
+              {/* Masonry Grid */}
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
                 {companies.map((company, index) => (
                   <div
                     key={index}
-                    className="flex items-center justify-center px-4 py-3 w-[calc(50%-12px)] md:w-[calc(25%-18px)] h-[80px]"
+                    className="group/card relative bg-background/60 backdrop-blur-md border border-border/40 rounded-xl p-6 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 transition-all duration-500 transform hover:-translate-y-1 overflow-hidden h-32 flex items-center justify-center"
+                    style={{
+                      animationDelay: `${index * 50}ms`,
+                    }}
                   >
-                    <img
-                      src={company.image}
-                      alt={company.name}
-                      className="max-h-[60px] w-auto max-w-full object-contain"
-                    />
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" />
+
+                    {/* Shine Effect */}
+                    <div className="absolute inset-0 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/card:translate-x-full transition-transform duration-1000" />
+                    </div>
+
+                    {/* Logo Container */}
+                    <div className="relative flex items-center justify-center w-full h-full">
+                      <img
+                        src={company.image}
+                        alt={company.name}
+                        className="h-14 w-auto object-contain filter grayscale opacity-70 group-hover/card:grayscale-0 group-hover/card:opacity-100 transition-all duration-500 group-hover/card:scale-105"
+                      />
+                    </div>
                   </div>
                 ))}
               </div>
             </div>
           ))}
 
-          {/* Row 1: IT & ITES Services + Hospitality & Tourism */}
-          <div className="grid md:grid-cols-2 gap-12">
+          {/* Row 1: IT & ITES + Hospitality - Side by Side */}
+          <div className="grid md:grid-cols-2 gap-10">
             {smallSectionsRow1.map((section) => (
-              <div key={section.title} className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-6 hover:border-primary/30 transition-colors duration-300">
-                <div className="text-center mb-6">
-                  <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">
+              <div key={section.title} className="group relative bg-gradient-to-br from-card/60 to-card/40 backdrop-blur-sm border border-border/50 rounded-3xl p-8 hover:border-primary/30 transition-all duration-500 shadow-lg">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full blur-3xl" />
+
+                <div className="text-center mb-10">
+                  <h3 className="text-xl md:text-2xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors duration-300">
                     {section.title}
                   </h3>
-                  <div className="w-20 h-1 bg-primary/30 mx-auto rounded-full" />
+                  <div className="w-20 h-1 bg-gradient-to-r from-primary/30 via-primary to-primary/30 mx-auto rounded-full group-hover:w-24 transition-all duration-300" />
                 </div>
                 <div className="flex flex-wrap gap-4 justify-center">
                   {section.companies.map((company, index) => (
                     <div
                       key={index}
-                      className="flex items-center justify-center px-4 py-3 w-[calc(50%-8px)] h-[80px]"
+                      className="group/card relative bg-background/60 backdrop-blur-md border border-border/40 rounded-xl p-6 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 transition-all duration-500 transform hover:-translate-y-1 overflow-hidden h-32 flex items-center justify-center w-[calc(50%-8px)]"
                     >
-                      <img
-                        src={company.image}
-                        alt={company.name}
-                        className="max-h-[60px] w-auto max-w-full object-contain"
-                      />
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" />
+                      <div className="relative flex items-center justify-center w-full h-full">
+                        <img
+                          src={company.image}
+                          alt={company.name}
+                          className="h-14 w-auto object-contain filter grayscale opacity-70 group-hover/card:grayscale-0 group-hover/card:opacity-100 transition-all duration-500 group-hover/card:scale-105"
+                        />
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -249,26 +272,31 @@ export const Customers = () => {
           </div>
 
           {/* Row 2: Healthcare + BFSI */}
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 gap-10">
             {smallSectionsRow2.map((section) => (
-              <div key={section.title} className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-6 hover:border-primary/30 transition-colors duration-300">
-                <div className="text-center mb-6">
-                  <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">
+              <div key={section.title} className="group relative bg-gradient-to-br from-card/60 to-card/40 backdrop-blur-sm border border-border/50 rounded-3xl p-8 hover:border-primary/30 transition-all duration-500 shadow-lg">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full blur-3xl" />
+
+                <div className="text-center mb-10">
+                  <h3 className="text-xl md:text-2xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors duration-300">
                     {section.title}
                   </h3>
-                  <div className="w-20 h-1 bg-primary/30 mx-auto rounded-full" />
+                  <div className="w-20 h-1 bg-gradient-to-r from-primary/30 via-primary to-primary/30 mx-auto rounded-full group-hover:w-24 transition-all duration-300" />
                 </div>
                 <div className="flex flex-wrap gap-4 justify-center">
                   {section.companies.map((company, index) => (
                     <div
                       key={index}
-                      className="flex items-center justify-center px-4 py-3 w-[calc(50%-8px)] h-[80px]"
+                      className="group/card relative bg-background/60 backdrop-blur-md border border-border/40 rounded-xl p-6 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 transition-all duration-500 transform hover:-translate-y-1 overflow-hidden h-32 flex items-center justify-center w-[calc(50%-8px)]"
                     >
-                      <img
-                        src={company.image}
-                        alt={company.name}
-                        className="max-h-[60px] w-auto max-w-full object-contain"
-                      />
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" />
+                      <div className="relative flex items-center justify-center w-full h-full">
+                        <img
+                          src={company.image}
+                          alt={company.name}
+                          className="h-14 w-auto object-contain filter grayscale opacity-70 group-hover/card:grayscale-0 group-hover/card:opacity-100 transition-all duration-500 group-hover/card:scale-105"
+                        />
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -276,27 +304,32 @@ export const Customers = () => {
             ))}
           </div>
 
-          {/* Row 3: Education + Retail & Wholesale */}
-          <div className="grid md:grid-cols-2 gap-12">
+          {/* Row 3: Education + Retail */}
+          <div className="grid md:grid-cols-2 gap-10">
             {smallSectionsRow3.map((section) => (
-              <div key={section.title} className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-6 hover:border-primary/30 transition-colors duration-300">
-                <div className="text-center mb-6">
-                  <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">
+              <div key={section.title} className="group relative bg-gradient-to-br from-card/60 to-card/40 backdrop-blur-sm border border-border/50 rounded-3xl p-8 hover:border-primary/30 transition-all duration-500 shadow-lg">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full blur-3xl" />
+
+                <div className="text-center mb-10">
+                  <h3 className="text-xl md:text-2xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors duration-300">
                     {section.title}
                   </h3>
-                  <div className="w-20 h-1 bg-primary/30 mx-auto rounded-full" />
+                  <div className="w-20 h-1 bg-gradient-to-r from-primary/30 via-primary to-primary/30 mx-auto rounded-full group-hover:w-24 transition-all duration-300" />
                 </div>
                 <div className="flex flex-wrap gap-4 justify-center">
                   {section.companies.map((company, index) => (
                     <div
                       key={index}
-                      className="flex items-center justify-center px-4 py-3 w-[calc(50%-8px)] h-[80px]"
+                      className="group/card relative bg-background/60 backdrop-blur-md border border-border/40 rounded-xl p-6 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 transition-all duration-500 transform hover:-translate-y-1 overflow-hidden h-32 flex items-center justify-center w-[calc(50%-8px)]"
                     >
-                      <img
-                        src={company.image}
-                        alt={company.name}
-                        className="max-h-[60px] w-auto max-w-full object-contain"
-                      />
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" />
+                      <div className="relative flex items-center justify-center w-full h-full">
+                        <img
+                          src={company.image}
+                          alt={company.name}
+                          className="h-14 w-auto object-contain filter grayscale opacity-70 group-hover/card:grayscale-0 group-hover/card:opacity-100 transition-all duration-500 group-hover/card:scale-105"
+                        />
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -304,27 +337,32 @@ export const Customers = () => {
             ))}
           </div>
 
-          {/* Row 4: NGO + Construction & Infrastructure */}
-          <div className="grid md:grid-cols-2 gap-12">
+          {/* Row 4: NGO + Construction - Compact Cards */}
+          <div className="grid md:grid-cols-2 gap-10">
             {smallSectionsRow4.map((section) => (
-              <div key={section.title} className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-6 hover:border-primary/30 transition-colors duration-300">
-                <div className="text-center mb-6">
-                  <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">
+              <div key={section.title} className="group relative bg-gradient-to-br from-card/60 to-card/40 backdrop-blur-sm border border-border/50 rounded-3xl p-8 hover:border-primary/30 transition-all duration-500 shadow-lg">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full blur-3xl" />
+
+                <div className="text-center mb-10">
+                  <h3 className="text-xl md:text-2xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors duration-300">
                     {section.title}
                   </h3>
-                  <div className="w-20 h-1 bg-primary/30 mx-auto rounded-full" />
+                  <div className="w-20 h-1 bg-gradient-to-r from-primary/30 via-primary to-primary/30 mx-auto rounded-full group-hover:w-24 transition-all duration-300" />
                 </div>
                 <div className="flex flex-wrap gap-4 justify-center">
                   {section.companies.map((company, index) => (
                     <div
                       key={index}
-                      className="flex items-center justify-center px-4 py-3 w-[calc(50%-8px)] h-[80px]"
+                      className="group/card relative bg-background/60 backdrop-blur-md border border-border/40 rounded-xl p-6 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 transition-all duration-500 transform hover:-translate-y-1 overflow-hidden h-32 flex items-center justify-center w-[calc(50%-8px)]"
                     >
-                      <img
-                        src={company.image}
-                        alt={company.name}
-                        className="max-h-[60px] w-auto max-w-full object-contain"
-                      />
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" />
+                      <div className="relative flex items-center justify-center w-full h-full">
+                        <img
+                          src={company.image}
+                          alt={company.name}
+                          className="h-14 w-auto object-contain filter grayscale opacity-70 group-hover/card:grayscale-0 group-hover/card:opacity-100 transition-all duration-500 group-hover/card:scale-105"
+                        />
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -332,27 +370,32 @@ export const Customers = () => {
             ))}
           </div>
 
-          {/* Row 5: Logistics & Transportation - Centered */}
-          <div className="max-w-md mx-auto">
+          {/* Row 5: Logistics - Centered Single Card */}
+          <div className="flex justify-center">
             {smallSectionsRow5.map((section) => (
-              <div key={section.title} className="bg-card/50 backdrop-blur-sm border border-border rounded-2xl p-6 hover:border-primary/30 transition-colors duration-300">
-                <div className="text-center mb-6">
-                  <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">
+              <div key={section.title} className="group relative bg-gradient-to-br from-card/60 to-card/40 backdrop-blur-sm border border-border/50 rounded-3xl p-8 hover:border-primary/30 transition-all duration-500 shadow-lg max-w-md w-full">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full blur-3xl" />
+
+                <div className="text-center mb-10">
+                  <h3 className="text-xl md:text-2xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors duration-300">
                     {section.title}
                   </h3>
-                  <div className="w-20 h-1 bg-primary/30 mx-auto rounded-full" />
+                  <div className="w-20 h-1 bg-gradient-to-r from-primary/30 via-primary to-primary/30 mx-auto rounded-full group-hover:w-24 transition-all duration-300" />
                 </div>
-                <div className="flex justify-center">
+                <div className="flex flex-wrap gap-4 justify-center">
                   {section.companies.map((company, index) => (
                     <div
                       key={index}
-                      className="flex items-center justify-center px-4 py-3 w-[200px] h-[80px]"
+                      className="group/card relative bg-background/60 backdrop-blur-md border border-border/40 rounded-xl p-6 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 transition-all duration-500 transform hover:-translate-y-1 overflow-hidden h-32 flex items-center justify-center w-[calc(50%-8px)]"
                     >
-                      <img
-                        src={company.image}
-                        alt={company.name}
-                        className="max-h-[60px] w-auto max-w-full object-contain"
-                      />
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" />
+                      <div className="relative flex items-center justify-center w-full h-full">
+                        <img
+                          src={company.image}
+                          alt={company.name}
+                          className="h-14 w-auto object-contain filter grayscale opacity-70 group-hover/card:grayscale-0 group-hover/card:opacity-100 transition-all duration-500 group-hover/card:scale-105"
+                        />
+                      </div>
                     </div>
                   ))}
                 </div>

@@ -184,7 +184,7 @@ export const Header = () => {
               className="transition-transform duration-300 group-hover:scale-105"
               style={{ width: '215px', height: '60px' }}
             />
-            <p className="text-[11px] text-primary font-bold tracking-wide">
+            <p className="text-[11px] text-[#0202fa] font-bold tracking-wide">
               Your Trusted Shield Since 1985
             </p>
           </Link>

@@ -80,7 +80,7 @@ export const VerticalDetails = forwardRef<HTMLDivElement, VerticalDetailsProps>(
 
                                 <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6">
                                     {section.features.map((feature: any, fIdx: number) => (
-                                        <div key={fIdx} className="group p-6 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                                        <div key={fIdx} className="group p-6 rounded-xl bg-card/60 backdrop-blur-sm border border-border/50 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1 transition-all duration-300">
                                             <div className="flex items-start gap-4">
                                                 <CheckCircle2 className="w-5 h-5 text-primary mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
                                                 <div>

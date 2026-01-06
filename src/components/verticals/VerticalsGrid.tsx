@@ -14,7 +14,7 @@ export const VerticalsGrid = ({ isSidebar, activeVertical, onVerticalClick }: Ve
                 <div
                     key={index}
                     onClick={() => onVerticalClick(vertical.name)}
-                    className={`group relative flex-shrink-0 min-w-[140px] md:min-w-[160px] ${isSidebar ? 'w-full p-3' : 'p-4'} rounded-xl bg-secondary/30 hover:bg-primary/10 border border-transparent hover:border-primary/20 transition-all duration-300 cursor-pointer overflow-hidden ${activeVertical === vertical.name ? 'ring-2 ring-primary bg-primary/10' : ''}`}
+                    className={`group relative flex-shrink-0 min-w-[140px] md:min-w-[160px] ${isSidebar ? 'w-full p-3' : 'p-4'} rounded-xl bg-card/60 backdrop-blur-sm hover:bg-primary/10 border border-border/50 hover:border-primary/20 transition-all duration-300 cursor-pointer overflow-hidden ${activeVertical === vertical.name ? 'ring-2 ring-primary bg-primary/10' : ''}`}
                 >
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     <div className="relative z-10 flex items-center justify-center h-full">
