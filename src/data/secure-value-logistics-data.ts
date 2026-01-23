@@ -50,7 +50,7 @@ export interface SecureLogisticsSection {
 export const secureLogisticsHero = {
     badge: "Secure Value Logistics Platform",
     title: "AI-Driven Cash, High-Value & Critical Asset Logistics",
-    subtitle: "Intelligence-led logistics ecosystem for secure movement of cash, bullion, minerals, jewellery, and critical valuables with predictive, auditable, and zero-loss operations."
+    subtitle: "Secure movement of cash, bullion, minerals, and critical valuables with zero-loss operations."
 };
 
 // ============================================================================
