@@ -1,4 +1,4 @@
-import { Landmark, Heart, Factory, Droplets, Building2, Plane, ShoppingBag, Home, Monitor, Wrench, Shield, Activity, Zap, Layers, Server, Truck, Lock, CreditCard, HardHat, Leaf, Database, Wifi, FileCheck, AlertTriangle, Network, Users, Globe, Smartphone, AlertOctagon } from "lucide-react";
+import { Landmark, Heart, Factory, Droplets, Building2, Plane, ShoppingBag, Home, Monitor, Wrench, Shield, Activity, Zap, Layers, Server, Truck, Lock, CreditCard, HardHat, Leaf, Database, Wifi, FileCheck, AlertTriangle, Network, Users, Globe, Smartphone, AlertOctagon, GraduationCap, Package, MapPin, Calendar, Train, Palmtree } from "lucide-react";
 
 // Image imports will need to be handled by the component or passed as strings/imported here if possible. 
 // For now, we will replace the imported image variables with string paths or keep them as imports if we move the assets or use dynamic imports.
@@ -19,16 +19,19 @@ import verticalsSurveillance from "../assets/verticals-surveillance.jpg";
 import verticalsMep from "../assets/hero-soc.jpg";
 
 export const verticalsList = [
-    { icon: Landmark, name: "BFSI", description: "Banking, Financial Services & Insurance", stats: "120+ Banks" },
+    { icon: GraduationCap, name: "School & Higher Education", description: "Campus Security & Student Safety", stats: "200+ Institutions" },
+    { icon: Landmark, name: "Banking & Finance", description: "Banking, Financial Services & Insurance", stats: "120+ Banks" },
+    { icon: Factory, name: "Manufacturing", description: "Industrial & Production Facilities", stats: "200+ Plants" },
     { icon: Heart, name: "Healthcare", description: "Hospitals, Pharma & Life Sciences", stats: "85+ Hospitals" },
-    { icon: Factory, name: "Industrial", description: "Manufacturing & Heavy Industries", stats: "200+ Plants" },
-    { icon: Droplets, name: "Energy", description: "Energy & Natural Resources", stats: "45+ Sites" },
-    { icon: Building2, name: "Smart Cities", description: "Urban Infrastructure & Governance", stats: "12 Cities" },
-    { icon: Plane, name: "Transport", description: "Airports, Ports & Logistics Hubs", stats: "30+ Hubs" },
+    { icon: Truck, name: "Cash Logistics", description: "Secure Value Transport & CIT", stats: "500+ Routes" },
+    { icon: Building2, name: "GCC / IT Parks", description: "Tech Parks & Corporate Campuses", stats: "50+ Parks" },
+    { icon: Plane, name: "Aerospace", description: "Aviation & Aerospace Security", stats: "30+ Airports" },
+    { icon: Package, name: "Logistics", description: "Supply Chain & Warehousing", stats: "300+ Warehouses" },
+    { icon: MapPin, name: "Smart Cities", description: "Urban Infrastructure & Governance", stats: "12 Cities" },
+    { icon: Calendar, name: "Event Management", description: "Large Events & Venue Security", stats: "1000+ Events" },
+    { icon: Train, name: "Mass Transportation", description: "Metro, Rail & Public Transport", stats: "25+ Stations" },
     { icon: ShoppingBag, name: "Retail", description: "Malls, Stores & E-commerce", stats: "500+ Stores" },
-    { icon: Home, name: "Residential", description: "Townships & Gated Communities", stats: "150+ Communities" },
-    { icon: Monitor, name: "IT / ITES", description: "Tech Parks, Corporate Workspaces", stats: "50+ Parks" },
-    { icon: Wrench, name: "Manufacturing", description: "Automotive, Electronics & Production", stats: "100+ Units" },
+    { icon: Palmtree, name: "Travel & Tourism", description: "Hotels, Resorts & Tourism", stats: "150+ Properties" },
 ];
 
 export const verticalsData: Record<string, any> = {

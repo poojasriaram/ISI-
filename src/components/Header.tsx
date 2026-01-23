@@ -24,13 +24,19 @@ const navItems = [
 
 // New industry verticals list for the dropdown
 const verticalsList = [
-  { name: "Secure Value Logistics", id: "logistics" },
-  { name: "Hotels & Event Management", id: "hospitality" },
-  { name: "BFSI Sector", id: "bfsi" },
-  { name: "Education & Higher Education", id: "education" },
-  { name: "Manufacturing & Defence", id: "manufacturing" },
-  { name: "Healthcare & Facility Management", id: "healthcare" },
-  { name: "Aerial Intelligence & Drones", id: "drones" },
+  { name: "School & Higher Education", id: "education" },
+  { name: "Banking & Finance", id: "bfsi" },
+  { name: "Manufacturing", id: "manufacturing" },
+  { name: "Healthcare", id: "healthcare" },
+  { name: "Cash Logistics", id: "cash-logistics" },
+  { name: "GCC / IT Parks", id: "gcc-it-parks" },
+  { name: "Aerospace", id: "aerospace" },
+  { name: "Logistics", id: "logistics" },
+  { name: "Smart Cities", id: "smart-cities" },
+  { name: "Event Management", id: "event-management" },
+  { name: "Mass Transportation", id: "mass-transportation" },
+  { name: "Retail", id: "retail" },
+  { name: "Travel & Tourism", id: "travel-tourism" },
 ];
 
 const offeringsList = [
@@ -175,22 +181,21 @@ export const Header = () => {
         </div>
       </div>
 
-      <nav className="container mx-auto px-4 lg:px-16 max-w-full overflow-hidden">
-        <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex flex-col items-center gap-1">
+      <nav className="container mx-auto px-4 lg:px-8 xl:px-16 max-w-full">
+        <div className="flex items-center justify-between h-20 gap-4">
+          <Link to="/" className="flex flex-col items-center gap-1 shrink-0">
             <img
               src={isiLogo}
               alt="ISI Security"
-              className="transition-transform duration-300 group-hover:scale-105"
-              style={{ width: '215px', height: '60px' }}
+              className="transition-transform duration-300 group-hover:scale-105 w-[140px] md:w-[180px] xl:w-[215px] h-auto object-contain"
             />
-            <p className="text-[11px] text-[#0202fa] font-bold tracking-wide">
+            <p className="text-[9px] md:text-[10px] xl:text-[11px] text-[#0202fa] font-bold tracking-wide whitespace-nowrap hidden sm:block xl:hidden 2xl:block">
               Your Trusted Shield Since 1985
             </p>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden xl:flex items-center gap-1">
+          <div className="hidden xl:flex items-center gap-1 shrink-0">
             {navItems.map((item) => {
               if (item.name === "Verticals") {
                 return (
@@ -221,7 +226,7 @@ export const Header = () => {
                   key={item.name}
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className="relative px-3 py-2 text-sm font-medium text-black hover:text-primary transition-colors duration-200 group cursor-pointer"
+                  className="relative px-2 xl:px-2 2xl:px-3 py-2 text-sm font-medium text-black hover:text-primary transition-colors duration-200 group cursor-pointer whitespace-nowrap block"
                 >
                   {item.name}
                   <span className="absolute bottom-0 left-2 right-2 h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
@@ -230,9 +235,9 @@ export const Header = () => {
             })}
           </div>
 
-          <div className="hidden xl:flex items-center gap-3">
+          <div className="hidden xl:flex items-center gap-2 xl:gap-2 2xl:gap-3 shrink-0">
             <Link to="/contact">
-              <Button size="sm" className="gap-2 bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-600/20">
+              <Button size="sm" className="gap-2 bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-600/20 whitespace-nowrap">
                 Contact Us
                 <ArrowRight className="w-4 h-4" />
               </Button>
@@ -241,7 +246,7 @@ export const Header = () => {
               href="https://wa.me/919944499988?text=Hello!%20I%20would%20like%20to%20know%20more%20about%20your%20security%20solutions."
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-md shadow-lg shadow-green-600/20 transition-colors text-sm font-medium"
+              className="flex items-center gap-2 px-3 xl:px-3 2xl:px-4 py-2 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-md shadow-lg shadow-green-600/20 transition-colors text-sm font-medium whitespace-nowrap"
             >
               <MessageCircle className="w-4 h-4" />
               WhatsApp
@@ -250,7 +255,7 @@ export const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="xl:hidden p-2 rounded-lg hover:bg-muted transition-colors"
+            className="xl:hidden p-2 rounded-lg hover:bg-muted transition-colors ml-auto"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -258,7 +263,7 @@ export const Header = () => {
         </div>
 
         {/* Mobile Navigation */}
-        <div className={`xl:hidden overflow-hidden transition-all duration-300 ${mobileMenuOpen ? "max-h-[80vh] opacity-100 overflow-y-auto" : "max-h-0 opacity-0"}`}>
+        <div className={`xl:hidden overflow-hidden transition-all duration-300 ${mobileMenuOpen ? "max-h-[calc(100vh-5rem)] opacity-100 overflow-y-auto" : "max-h-0 opacity-0"}`}>
           <div className="py-4 border-t border-border">
             <div className="flex flex-col gap-1">
               {navItems.map((item, index) => (
@@ -270,12 +275,21 @@ export const Header = () => {
                   >
                     {item.name}
                   </a>
-                  {/* Render simplistic nested list for mobile if needed for Offerings/Verticals */}
+                  {/* Render simplified nested list for mobile */}
                   {item.name === "Offerings" && (
                     <div className="pl-6 bg-muted/20 border-l-2 border-primary/20 my-1">
                       {offeringsList.map(off => (
                         <a key={off.name} href="#" onClick={(e) => { e.preventDefault(); handleDropdownItemClick(off.href); }} className="block py-2 px-4 text-xs text-muted-foreground hover:text-primary transition-colors">
                           {off.name}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                  {item.name === "Verticals" && (
+                    <div className="pl-6 bg-muted/20 border-l-2 border-primary/20 my-1 grid grid-cols-1 gap-1">
+                      {verticalsList.map(v => (
+                        <a key={v.name} href="#" onClick={(e) => { e.preventDefault(); handleDropdownItemClick(`/verticals#${v.id}`); }} className="block py-2 px-4 text-xs text-muted-foreground hover:text-primary transition-colors">
+                          {v.name}
                         </a>
                       ))}
                     </div>

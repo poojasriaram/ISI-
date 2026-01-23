@@ -12,11 +12,11 @@ interface LayoutProps {
 
 export const Layout = ({ children, className, noPadding = false }: LayoutProps) => {
     return (
-        <div className="min-h-screen bg-background flex flex-col overflow-x-hidden">
+        <div className="min-h-screen bg-background flex flex-col overflow-x-hidden w-full max-w-[100vw]">
             <ContentProtection />
             <Header />
             <main className={cn(
-                "flex-grow overflow-x-hidden",
+                "flex-grow overflow-x-hidden w-full",
                 !noPadding && "pt-32", // Default top padding for fixed header
                 className
             )}>

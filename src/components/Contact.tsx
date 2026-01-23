@@ -5,7 +5,17 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 import { Checkbox } from "./ui/checkbox";
 import { toast } from "sonner";
 import { ContactFormData, FormErrors } from '@/types/contact';
-import { submitContactForm, isValidEmail, isValidPhone } from '@/services/airtable';
+
+// Local validation functions
+const isValidEmail = (email: string): boolean => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+
+const isValidPhone = (phone: string): boolean => {
+  const digitsOnly = phone.replace(/\D/g, '');
+  return digitsOnly.length >= 10 && digitsOnly.length <= 15;
+};
 
 export const Contact = () => {
   // Form state
@@ -111,7 +121,11 @@ export const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      await submitContactForm(formData);
+      // Log form data (Airtable integration removed)
+      console.log('Contact Form Submission:', formData);
+
+      // Simulate submission delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
 
       toast.success('Thank you for contacting us!', {
         description: 'We\'ll get back to you within 24 hours.',
@@ -134,7 +148,7 @@ export const Contact = () => {
     } catch (error) {
       console.error('Form submission error:', error);
       toast.error('Failed to submit form', {
-        description: error instanceof Error ? error.message : 'Please try again later or contact us directly.',
+        description: 'Please try again later or contact us directly.',
         duration: 7000,
       });
     } finally {
@@ -299,7 +313,7 @@ export const Contact = () => {
           <div className="relative bg-card/80 backdrop-blur-xl border border-border/50 rounded-3xl p-8 md:p-12 shadow-2xl">
             <form onSubmit={handleSubmit} className="space-y-8">
               {/* Row 1: Personal & Company Info */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                 <div className="space-y-2">
                   <label htmlFor="name" className="text-sm font-semibold text-foreground flex items-center gap-2">
                     <User className="w-4 h-4 text-primary" />
@@ -370,7 +384,7 @@ export const Contact = () => {
               </div>
 
               {/* Row 2: Contact Details */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                 <div className="space-y-2">
                   <label htmlFor="phone" className="text-sm font-semibold text-foreground flex items-center gap-2">
                     <Phone className="w-4 h-4 text-primary" />
@@ -497,7 +511,7 @@ export const Contact = () => {
         </div>
 
         {/* Quick Contact Cards */}
-        <div className="grid md:grid-cols-3 gap-6 mb-24">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-16 md:mb-24">
           <div className="group bg-gradient-to-br from-card to-card/50 backdrop-blur-sm p-6 rounded-2xl border border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
             <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
               <Phone className="w-6 h-6 text-primary group-hover:text-white" />
@@ -539,7 +553,7 @@ export const Contact = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {offices.map((office, index) => (
               <div key={index} className="group bg-card/40 hover:bg-card/60 backdrop-blur-sm p-6 rounded-2xl border border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                 <div className="flex items-center gap-3 mb-4">

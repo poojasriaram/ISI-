@@ -6,7 +6,17 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { toast } from "sonner";
 import { PartnerFormData, PartnerFormErrors } from "@/types/partner";
-import { submitPartnerApplication, isValidEmail, isValidPhone } from "@/services/airtable";
+
+// Local validation functions
+const isValidEmail = (email: string): boolean => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+
+const isValidPhone = (phone: string): boolean => {
+  const digitsOnly = phone.replace(/\D/g, '');
+  return digitsOnly.length >= 10 && digitsOnly.length <= 15;
+};
 
 const partnerTypes = [
   {
@@ -126,7 +136,11 @@ export const Partners = () => {
     setIsSubmitting(true);
 
     try {
-      await submitPartnerApplication(formData);
+      // Log form data (Airtable integration removed)
+      console.log('Partner Application Submission:', formData);
+
+      // Simulate submission delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
 
       toast.success('Application submitted successfully!', {
         description: 'Our partnership team will review your application and get back to you within 48 hours.',
@@ -149,7 +163,7 @@ export const Partners = () => {
     } catch (error) {
       console.error('Partner form submission error:', error);
       toast.error('Failed to submit application', {
-        description: error instanceof Error ? error.message : 'Please try again later.',
+        description: 'Please try again later.',
         duration: 7000,
       });
     } finally {

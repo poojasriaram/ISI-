@@ -200,52 +200,16 @@ export const Solutions = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {solutions.map((solution, index) => (
-            <Card key={index} className="flex flex-col h-[280px] bg-card/40 backdrop-blur-md border-border/40 hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 group relative overflow-hidden">
+            <Card key={index} className="flex flex-col bg-card/40 backdrop-blur-md border-border/40 hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 group relative overflow-hidden">
               {/* Top Accent Line */}
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
-              {/* Hover Overlay with Details */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/90 to-blue-600/95 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-700 z-10 p-6 flex flex-col justify-between overflow-hidden">
-                <div className="space-y-4">
-                  <div className="flex items-start justify-between">
-                    <div className="w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center">
-                      <solution.icon className="w-6 h-6 text-white" />
-                    </div>
-                    <Badge className="bg-white/20 text-white border-white/30 text-xs">
-                      View Details
-                    </Badge>
-                  </div>
-
-                  <h3 className="text-lg font-bold text-white leading-tight">
-                    {solution.title}
-                  </h3>
-
-                  <div className="flex items-center gap-2 text-white/90 font-bold text-xs uppercase tracking-wider">
-                    <div className="h-px flex-1 bg-white/30" />
-                    <span>Features</span>
-                    <div className="h-px flex-1 bg-white/30" />
-                  </div>
-
-                  <ul className="space-y-2.5">
-                    {solution.features.map((feature, i) => (
-                      <li key={i} className="text-sm text-white/90 flex items-start gap-2.5">
-                        <Check className="w-4 h-4 text-white mt-0.5 flex-shrink-0" />
-                        <span className="leading-snug">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              {/* Default Card Content */}
+              {/* Card Header */}
               <CardHeader className="space-y-4 pb-3 relative z-0">
                 <div className="flex justify-between items-start">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/10 to-transparent border border-primary/10 flex items-center justify-center text-primary group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 shadow-sm">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/10 to-transparent border border-primary/10 flex items-center justify-center text-primary group-hover:scale-105 transition-transform duration-300 shadow-sm">
                     <solution.icon className="w-7 h-7" />
                   </div>
-                  <Badge variant="outline" className="text-[10px] opacity-60 group-hover:opacity-0 transition-opacity">
-                    Hover to explore
-                  </Badge>
                 </div>
 
                 <CardTitle className="text-xl font-bold leading-tight group-hover:text-primary transition-colors pr-4">
@@ -253,13 +217,31 @@ export const Solutions = () => {
                 </CardTitle>
               </CardHeader>
 
-              <CardContent className="flex flex-col flex-1 pt-2 relative z-0">
+              <CardContent className="flex flex-col flex-1 pt-2 relative z-0 space-y-4">
                 {/* Problem Statement Box */}
                 <div className="bg-secondary/30 rounded-xl p-4 relative group-hover:bg-secondary/50 transition-colors">
                   <Quote className="w-8 h-8 text-primary/10 absolute -top-3 -left-2 transform -scale-x-100" />
-                  <p className="text-sm font-medium text-foreground/90 italic relative z-10 pl-2 line-clamp-4">
+                  <p className="text-sm font-medium text-foreground/90 italic relative z-10 pl-2 line-clamp-3">
                     {solution.problem}
                   </p>
+                </div>
+
+                {/* Features Section - Always Visible */}
+                <div className="space-y-3">
+                  <div className="flex items-center gap-2 text-primary/80 font-bold text-xs uppercase tracking-wider">
+                    <div className="h-px flex-1 bg-border" />
+                    <span>Features</span>
+                    <div className="h-px flex-1 bg-border" />
+                  </div>
+
+                  <ul className="space-y-2">
+                    {solution.features.map((feature, i) => (
+                      <li key={i} className="text-xs text-muted-foreground flex items-start gap-2">
+                        <Check className="w-3.5 h-3.5 text-primary mt-0.5 flex-shrink-0" />
+                        <span className="leading-snug">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </CardContent>
             </Card>

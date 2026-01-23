@@ -287,11 +287,13 @@ export const ComprehensiveSolutions = () => {
                     {comprehensiveSolutions.map((solution, index) => (
                         <div
                             key={index}
-                            className="group relative bg-card/60 backdrop-blur-sm border border-border/50 rounded-2xl p-8 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500"
+                            className="group relative bg-card/40 backdrop-blur-md border-border/40 border rounded-2xl p-8 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 overflow-hidden"
                         >
+                            {/* Top Accent Line */}
+                            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                             {/* Icon & Title */}
                             <div className="flex items-start gap-4 mb-6">
-                                <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+                                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/10 to-transparent border border-primary/10 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300 shadow-sm">
                                     <solution.icon className="w-8 h-8 text-primary" />
                                 </div>
                                 <div className="flex-1">
@@ -305,14 +307,17 @@ export const ComprehensiveSolutions = () => {
                             <div className="space-y-6">
                                 {solution.sections.map((section, sectionIdx) => (
                                     <div key={sectionIdx} className="space-y-3">
-                                        <h4 className="text-sm font-bold text-foreground uppercase tracking-wider flex items-center gap-2">
-                                            <div className="w-1.5 h-4 bg-primary rounded-full" />
-                                            {section.title}
-                                        </h4>
-                                        <ul className="space-y-2 pl-4">
+                                        <div className="flex items-center gap-2">
+                                            <div className="h-px flex-1 bg-border" />
+                                            <h4 className="text-xs font-bold text-primary/80 uppercase tracking-wider">
+                                                {section.title}
+                                            </h4>
+                                            <div className="h-px flex-1 bg-border" />
+                                        </div>
+                                        <ul className="space-y-2">
                                             {section.items.map((item, itemIdx) => (
-                                                <li key={itemIdx} className="flex items-start gap-3 text-sm text-muted-foreground leading-relaxed">
-                                                    <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                                                <li key={itemIdx} className="flex items-start gap-3 text-xs text-muted-foreground leading-relaxed">
+                                                    <Check className="w-3.5 h-3.5 text-primary mt-0.5 shrink-0" />
                                                     <span>{item}</span>
                                                 </li>
                                             ))}
@@ -323,16 +328,17 @@ export const ComprehensiveSolutions = () => {
 
                             {/* Value Delivered */}
                             <div className="mt-6 pt-6 border-t border-border/50">
-                                <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">
-                                    Value Delivered
-                                </p>
-                                <p className="text-sm text-foreground font-medium leading-relaxed">
+                                <div className="flex items-center gap-2 mb-2">
+                                    <div className="h-px flex-1 bg-border" />
+                                    <p className="text-xs font-semibold text-primary/80 uppercase tracking-wider">
+                                        Value Delivered
+                                    </p>
+                                    <div className="h-px flex-1 bg-border" />
+                                </div>
+                                <p className="text-sm text-foreground/90 font-medium leading-relaxed text-center">
                                     {solution.value}
                                 </p>
                             </div>
-
-                            {/* Decoration */}
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-[80px] -mr-8 -mt-8 pointer-events-none opacity-50" />
                         </div>
                     ))}
                 </div>

@@ -108,7 +108,7 @@ export const Footer = () => {
             </ul>
 
             <h4 className="font-bold text-background mb-4 mt-8 text-lg">
-              Landing Pages
+              Offerings Pages
             </h4>
             <ul className="space-y-3">
               {footerLinks.landingPages.map((link) => (

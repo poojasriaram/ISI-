@@ -11,16 +11,6 @@ export interface ContactFormData {
     privacyConsent: boolean;
 }
 
-export interface AirtableRecord {
-    fields: Record<string, any>;
-}
-
-export interface AirtableResponse {
-    id: string;
-    createdTime: string;
-    fields: Record<string, any>;
-}
-
 export interface FormErrors {
     name?: string;
     email?: string;

@@ -1,13 +1,48 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { toast } from "sonner";
 import { EbookFormData, ConsultationFormData } from "@/types/schoolSafety";
-import { submitEbookDownload, submitConsultationRequest } from "@/services/airtable";
+import useEmblaCarousel from "embla-carousel-react";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
+
+import schoolSafety1 from "../assets/school_safety_1.jpg";
+import schoolSafety2 from "../assets/school_safety_2.jpg";
+import schoolSafety3 from "../assets/school_safety_3.jpg";
+import schoolSafety4 from "../assets/school_safety_4.jpg";
+import schoolSafety5 from "../assets/school_safety_5.jpg";
+
+const heroSlides = [
+    {
+        image: schoolSafety1,
+        title: "Campus Security Operations",
+        description: "Advanced monitoring systems ensuring safe and secure educational environments"
+    },
+    {
+        image: schoolSafety2,
+        title: "AI-Powered Access Control",
+        description: "Modern security infrastructure with intelligent surveillance and access management"
+    },
+    {
+        image: schoolSafety3,
+        title: "Emergency Response Systems",
+        description: "Rapid alert and response protocols for comprehensive school safety"
+    },
+    {
+        image: schoolSafety4,
+        title: "Professional Security Personnel",
+        description: "Trained security teams dedicated to protecting students and staff"
+    },
+    {
+        image: schoolSafety5,
+        title: "24/7 Monitoring",
+        description: "Round-the-clock surveillance and command center operations"
+    }
+];
+
 import { useContentProtection } from "@/hooks/useContentProtection";
 
 export default function SchoolSafetyLanding() {
-    // Enable content protection
     useContentProtection();
     // E-Book form state
     const [ebookForm, setEbookForm] = useState<EbookFormData>({
@@ -31,21 +66,104 @@ export default function SchoolSafetyLanding() {
     });
     const [consultationSubmitting, setConsultationSubmitting] = useState(false);
 
+    // Floating E-Book widget state
+    const [isEbookWidgetOpen, setIsEbookWidgetOpen] = useState(false);
+
+    // Carousel state
+    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+    const [selectedIndex, setSelectedIndex] = useState(0);
+    const autoplayRef = useRef<NodeJS.Timeout | null>(null);
+
+    const scrollPrev = useCallback(() => {
+        if (emblaApi) {
+            stopAutoPlay();
+            emblaApi.scrollPrev();
+            setTimeout(startAutoPlay, 5000);
+        }
+    }, [emblaApi]);
+
+    const scrollNext = useCallback(() => {
+        if (emblaApi) {
+            stopAutoPlay();
+            emblaApi.scrollNext();
+            setTimeout(startAutoPlay, 5000);
+        }
+    }, [emblaApi]);
+
+    const scrollTo = useCallback((index: number) => {
+        if (emblaApi) {
+            stopAutoPlay();
+            emblaApi.scrollTo(index);
+            setTimeout(startAutoPlay, 5000);
+        }
+    }, [emblaApi]);
+
+    const startAutoPlay = useCallback(() => {
+        if (autoplayRef.current) return;
+        autoplayRef.current = setInterval(() => {
+            if (emblaApi) emblaApi.scrollNext();
+        }, 4000);
+    }, [emblaApi]);
+
+    const stopAutoPlay = useCallback(() => {
+        if (autoplayRef.current) {
+            clearInterval(autoplayRef.current);
+            autoplayRef.current = null;
+        }
+    }, []);
+
+    useEffect(() => {
+        if (!emblaApi) return;
+
+        const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
+        emblaApi.on("select", onSelect);
+        startAutoPlay();
+
+        emblaApi.on('pointerDown', stopAutoPlay);
+        emblaApi.on('pointerUp', startAutoPlay);
+
+        return () => {
+            stopAutoPlay();
+            emblaApi.off("select", onSelect);
+            emblaApi.off('pointerDown', stopAutoPlay);
+            emblaApi.off('pointerUp', startAutoPlay);
+        };
+    }, [emblaApi, startAutoPlay, stopAutoPlay]);
+
+    // Disable body scroll when E-Book widget is open
+    useEffect(() => {
+        if (isEbookWidgetOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [isEbookWidgetOpen]);
+
     // E-Book form handler
     const handleEbookSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setEbookSubmitting(true);
         try {
-            await submitEbookDownload(ebookForm);
+            // Log form data (Airtable integration removed)
+            console.log('E-Book Download Request:', ebookForm);
+
+            // Simulate submission delay
+            await new Promise(resolve => setTimeout(resolve, 1000));
+
             toast.success('E-Book request submitted!', {
                 description: 'Check your email for the School Safety Blueprint e-book.',
                 duration: 5000,
             });
             setEbookForm({ schoolName: '', role: '', email: '', phone: '' });
+            setIsEbookWidgetOpen(false); // Close widget on success
         } catch (error) {
             console.error('E-Book form error:', error);
             toast.error('Failed to submit request', {
-                description: error instanceof Error ? error.message : 'Please try again later.',
+                description: 'Please try again later.',
                 duration: 7000,
             });
         } finally {
@@ -58,7 +176,12 @@ export default function SchoolSafetyLanding() {
         e.preventDefault();
         setConsultationSubmitting(true);
         try {
-            await submitConsultationRequest(consultationForm);
+            // Log form data (Airtable integration removed)
+            console.log('Consultation Request:', consultationForm);
+
+            // Simulate submission delay
+            await new Promise(resolve => setTimeout(resolve, 1000));
+
             toast.success('Consultation request submitted!', {
                 description: 'Our school safety team will contact you within 24 hours.',
                 duration: 5000,
@@ -76,7 +199,7 @@ export default function SchoolSafetyLanding() {
         } catch (error) {
             console.error('Consultation form error:', error);
             toast.error('Failed to submit request', {
-                description: error instanceof Error ? error.message : 'Please try again later.',
+                description: 'Please try again later.',
                 duration: 7000,
             });
         } finally {
@@ -84,66 +207,140 @@ export default function SchoolSafetyLanding() {
         }
     };
 
-    // Override header to be static on this page only
-    useEffect(() => {
-        const header = document.querySelector('header');
-        if (header) {
-            header.classList.remove('fixed');
-            header.classList.add('static');
-            // Force white background and shadow for visibility
-            header.style.backgroundColor = 'white';
-            header.style.boxShadow = '0 1px 3px 0 rgb(0 0 0 / 0.1)';
-        }
-
-        return () => {
-            // Cleanup: restore fixed positioning when leaving the page
-            const header = document.querySelector('header');
-            if (header) {
-                header.classList.remove('static');
-                header.classList.add('fixed');
-                // Remove inline styles
-                header.style.backgroundColor = '';
-                header.style.boxShadow = '';
-            }
-        };
-    }, []);
-
     return (
         <div className="min-h-screen bg-background flex flex-col overflow-x-hidden">
             <Header />
             <main className="flex-grow overflow-x-hidden">
                 <div className="font-sans text-gray-900 bg-gray-50">
 
-                    {/* ================= HERO SECTION ================= */}
-                    <section className="relative bg-gradient-to-br from-indigo-700 via-indigo-600 to-blue-500 text-white pt-28">
-                        <div className="max-w-7xl mx-auto px-6 py-24 text-center">
-                            <span className="inline-block mb-4 rounded-full bg-white/20 px-4 py-1 text-sm font-semibold">
-                                India's Most Trusted School Safety Ecosystem
-                            </span>
+                    {/* ================= HERO SECTION WITH CAROUSEL ================= */}
+                    <section className="relative min-h-screen overflow-hidden" id="hero">
+                        {/* Carousel */}
+                        <div
+                            ref={emblaRef}
+                            className="overflow-hidden h-screen"
+                            onMouseEnter={stopAutoPlay}
+                            onMouseLeave={startAutoPlay}
+                        >
+                            <div className="flex h-full">
+                                {heroSlides.map((slide, index) => (
+                                    <div
+                                        key={index}
+                                        className="flex-[0_0_100%] min-w-0 relative h-full transition-opacity duration-50 ease-out"
+                                    >
+                                        {/* Background Image */}
+                                        <div
+                                            className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-[8000ms] ease-out"
+                                            style={{
+                                                backgroundImage: `url(${slide.image})`,
+                                                transform: selectedIndex === index ? 'scale(1.05)' : 'scale(1)'
+                                            }}
+                                        />
 
-                            <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
-                                Designing Schools Where <br className="hidden md:block" />
-                                Safety, Dignity & Trust Co-Exist
-                            </h1>
+                                        {/* Gradient Overlay */}
+                                        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/70" />
 
-                            <p className="max-w-3xl mx-auto text-lg text-indigo-100 mb-10">
-                                ISI India delivers an intelligence-led, privacy-first School Safety
-                                Ecosystem integrating certified guarding, ethical AI, and 24/7
-                                command intelligence — trusted by 500+ schools across India.
-                            </p>
-
-                            <div className="flex flex-col sm:flex-row justify-center gap-4">
-                                <button className="bg-white text-indigo-700 font-semibold px-8 py-4 rounded-xl shadow hover:scale-105 transition">
-                                    Get Free 15-Day Risk Assessment
-                                </button>
-                                <button className="border border-white/40 px-8 py-4 rounded-xl font-semibold hover:bg-white/10 transition">
-                                    Download Safety Blueprint
-                                </button>
+                                        {/* Accent Shapes */}
+                                        <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px]" />
+                                        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[100px]" />
+                                    </div>
+                                ))}
                             </div>
+                        </div>
 
-                            <div className="mt-10 text-sm text-indigo-200">
-                                500+ Schools Secured • Zero Major Incidents • 100% Compliance
+                        {/* Content Overlay */}
+                        <div className="absolute inset-0 flex items-start md:items-center pt-40 md:pt-32">
+                            <div className="container mx-auto px-4 lg:px-8 relative z-10">
+                                <div className="max-w-4xl">
+                                    {/* Badge */}
+                                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-card/80 backdrop-blur-sm border border-border rounded-full mb-8 animate-fade-in">
+                                        <span className="text-sm font-medium text-primary">India's Most Trusted School Safety Ecosystem</span>
+                                    </div>
+
+                                    {/* Main Heading */}
+                                    <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-foreground leading-tight mb-6 animate-fade-in">
+                                        Designing Schools Where <br className="hidden md:block" />
+                                        Safety, Dignity & Trust Co-Exist
+                                    </h1>
+
+                                    {/* Subheading */}
+                                    <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-10 animate-fade-in">
+                                        ISI India delivers an intelligence-led, privacy-first School Safety
+                                        Ecosystem integrating certified guarding, ethical AI, and 24/7
+                                        command intelligence — trusted by 500+ schools across India.
+                                    </p>
+
+                                    {/* CTA Buttons */}
+                                    <div className="flex flex-col sm:flex-row gap-4 mb-12">
+                                        <button className="gap-2 text-base px-8 py-6 bg-primary text-primary-foreground rounded-lg font-semibold shadow-lg shadow-primary/20 hover:bg-primary/90 transition">
+                                            Get Free 15-Day Risk Assessment
+                                        </button>
+                                        <button className="gap-2 text-base px-8 py-6 bg-card/60 backdrop-blur-md border border-border rounded-lg font-semibold hover:bg-primary hover:text-primary-foreground transition-all duration-300">
+                                            Download Safety Blueprint
+                                        </button>
+                                    </div>
+
+                                    {/* Trust Indicators */}
+                                    <div className="flex flex-wrap gap-8 text-sm text-muted-foreground">
+                                        <div className="flex items-center gap-2">
+                                            <span className="font-medium">500+ Schools Secured</span>
+                                        </div>
+                                        <div className="flex items-center gap-2">
+                                            <span className="font-medium">Zero Major Incidents</span>
+                                        </div>
+                                        <div className="flex items-center gap-2">
+                                            <span className="font-medium">100% Compliance</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+                        </div>
+
+                        {/* Navigation Arrows */}
+                        <div className="absolute bottom-1/2 translate-y-1/2 left-4 lg:left-8 z-20">
+                            <button
+                                onClick={scrollPrev}
+                                className="p-3 rounded-full bg-card/80 backdrop-blur-sm border border-border text-foreground hover:bg-card hover:border-primary/50 transition-all"
+                                aria-label="Previous slide"
+                            >
+                                <ChevronLeft className="w-5 h-5" />
+                            </button>
+                        </div>
+                        <div className="absolute bottom-1/2 translate-y-1/2 right-4 lg:right-8 z-20">
+                            <button
+                                onClick={scrollNext}
+                                className="p-3 rounded-full bg-card/80 backdrop-blur-sm border border-border text-foreground hover:bg-card hover:border-primary/50 transition-all"
+                                aria-label="Next slide"
+                            >
+                                <ChevronRight className="w-5 h-5" />
+                            </button>
+                        </div>
+
+                        {/* Slide Indicators */}
+                        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3">
+                            {heroSlides.map((_, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => scrollTo(index)}
+                                    className={`relative h-2 rounded-full transition-all duration-300 ${selectedIndex === index
+                                        ? "w-10 bg-primary"
+                                        : "w-2 bg-muted-foreground/40 hover:bg-muted-foreground/60"
+                                        }`}
+                                    aria-label={`Go to slide ${index + 1}`}
+                                >
+                                    {selectedIndex === index && (
+                                        <span className="absolute inset-0 rounded-full bg-primary animate-pulse" />
+                                    )}
+                                </button>
+                            ))}
+                        </div>
+
+                        {/* Progress Bar */}
+                        <div className="absolute bottom-0 left-0 right-0 h-1 bg-border/50 z-20">
+                            <div
+                                className="h-full bg-primary transition-all duration-300"
+                                style={{ width: `${((selectedIndex + 1) / heroSlides.length) * 100}%` }}
+                            />
                         </div>
                     </section>
 
@@ -415,108 +612,116 @@ export default function SchoolSafetyLanding() {
                         </div>
                     </section>
 
-                    {/* ================= IMPLEMENTATION ROADMAP ================= */}
-                    <section className="max-w-7xl mx-auto px-6 py-20">
-                        <h2 className="text-3xl font-bold text-center mb-12">
-                            Implementation Roadmap
-                        </h2>
-                        <p className="text-center text-gray-600 mb-12">An 18-Month Transformation Journey</p>
+                    {/* ================= FLOATING E-BOOK WIDGET ================= */}
+                    {/* Floating Trigger Button */}
+                    <button
+                        onClick={() => setIsEbookWidgetOpen(true)}
+                        className="fixed bottom-8 right-8 z-40 bg-gradient-to-br from-indigo-600 to-blue-500 text-white px-6 py-4 rounded-full shadow-2xl hover:shadow-indigo-500/50 hover:scale-105 transition-all duration-300 flex items-center gap-2 font-semibold"
+                        style={{ display: isEbookWidgetOpen ? 'none' : 'flex' }}
+                    >
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                        Free E-Book
+                    </button>
 
-                        <div className="relative">
-                            {/* Vertical line */}
-                            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-indigo-200 hidden md:block"></div>
+                    {/* Floating Widget */}
+                    <div
+                        className={`fixed top-0 right-0 h-full w-full md:w-[480px] bg-gradient-to-br from-gray-900 to-gray-800 text-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out ${isEbookWidgetOpen ? 'translate-x-0' : 'translate-x-full'
+                            }`}
+                    >
+                        <div className="h-full overflow-y-auto p-6 md:p-8">
+                            {/* Close Button */}
+                            <button
+                                onClick={() => setIsEbookWidgetOpen(false)}
+                                className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                                aria-label="Close"
+                            >
+                                <X className="w-6 h-6" />
+                            </button>
 
-                            <div className="space-y-8">
-                                {[
-                                    { phase: "Phase 0", title: "Risk Intelligence Sprint", duration: "2–3 weeks" },
-                                    { phase: "Phase 1", title: "Certified Guarding + Essential Tech", duration: "" },
-                                    { phase: "Phase 2", title: "AI Intelligence Pilot", duration: "" },
-                                    { phase: "Phase 3", title: "24/7 RCC Launch", duration: "" },
-                                    { phase: "Phase 4", title: "Full Intelligent Guarding", duration: "" },
-                                    { phase: "Phase 5", title: "Authority Integration", duration: "" },
-                                    { phase: "Phase 6", title: "Optimization & Trust Building", duration: "" },
-                                ].map((item, index) => (
-                                    <div key={item.phase} className="relative flex items-start gap-6">
-                                        <div className="flex-shrink-0 w-16 h-16 bg-indigo-600 text-white rounded-full flex items-center justify-center font-bold z-10">
-                                            {index}
-                                        </div>
-                                        <div className="flex-1 bg-white p-6 rounded-xl shadow">
-                                            <h3 className="font-bold text-lg text-indigo-700">{item.phase}</h3>
-                                            <p className="text-gray-900 font-semibold">{item.title}</p>
-                                            {item.duration && (
-                                                <p className="text-sm text-gray-600 mt-1">{item.duration}</p>
-                                            )}
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </section>
-
-                    {/* ================= LEAD MAGNET ================= */}
-                    <section className="bg-gradient-to-br from-gray-900 to-gray-800 text-white">
-                        <div className="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-10">
-                            <div>
+                            {/* Content */}
+                            <div className="mt-8">
                                 <h2 className="text-3xl font-bold mb-4">
-                                    Free E-Book: The Blueprint for School Safety in India
+                                    Free E-Book: The Blueprint for School Safety
                                 </h2>
                                 <p className="text-gray-300 mb-6">What You'll Learn:</p>
-                                <ul className="space-y-2 text-gray-300">
-                                    <li>✔ 15-day campus risk assessment framework</li>
-                                    <li>✔ Guarding vs Intelligent Guarding explained</li>
-                                    <li>✔ Privacy-first AI & DPDP compliance</li>
-                                    <li>✔ 18-month implementation roadmap</li>
+                                <ul className="space-y-3 text-gray-300 mb-8">
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-green-400 mt-1">✔</span>
+                                        <span>15-day campus risk assessment framework</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-green-400 mt-1">✔</span>
+                                        <span>Guarding vs Intelligent Guarding explained</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-green-400 mt-1">✔</span>
+                                        <span>Privacy-first AI & DPDP compliance</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-green-400 mt-1">✔</span>
+                                        <span>18-month implementation roadmap</span>
+                                    </li>
                                 </ul>
-                            </div>
 
-                            <div className="bg-white text-gray-900 p-8 rounded-2xl shadow">
-                                <h3 className="font-bold mb-4">Download the Free Blueprint</h3>
-                                <form onSubmit={handleEbookSubmit} className="space-y-4">
-                                    <input
-                                        className="w-full border p-3 rounded"
-                                        placeholder="School Name"
-                                        value={ebookForm.schoolName}
-                                        onChange={(e) => setEbookForm(prev => ({ ...prev, schoolName: e.target.value }))}
-                                        required
-                                        disabled={ebookSubmitting}
-                                    />
-                                    <input
-                                        className="w-full border p-3 rounded"
-                                        placeholder="Your Role"
-                                        value={ebookForm.role}
-                                        onChange={(e) => setEbookForm(prev => ({ ...prev, role: e.target.value }))}
-                                        required
-                                        disabled={ebookSubmitting}
-                                    />
-                                    <input
-                                        className="w-full border p-3 rounded"
-                                        placeholder="Email Address"
-                                        type="email"
-                                        value={ebookForm.email}
-                                        onChange={(e) => setEbookForm(prev => ({ ...prev, email: e.target.value }))}
-                                        required
-                                        disabled={ebookSubmitting}
-                                    />
-                                    <input
-                                        className="w-full border p-3 rounded"
-                                        placeholder="Phone Number"
-                                        type="tel"
-                                        value={ebookForm.phone}
-                                        onChange={(e) => setEbookForm(prev => ({ ...prev, phone: e.target.value }))}
-                                        required
-                                        disabled={ebookSubmitting}
-                                    />
-                                    <button
-                                        type="submit"
-                                        disabled={ebookSubmitting}
-                                        className="w-full bg-indigo-600 text-white py-3 rounded font-semibold hover:bg-indigo-700 transition disabled:opacity-50"
-                                    >
-                                        {ebookSubmitting ? 'Sending...' : 'Get the E-Book'}
-                                    </button>
-                                </form>
+                                <div className="bg-white text-gray-900 p-6 rounded-2xl shadow-xl">
+                                    <h3 className="font-bold text-xl mb-4">Download the Free Blueprint</h3>
+                                    <form onSubmit={handleEbookSubmit} className="space-y-4">
+                                        <input
+                                            className="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
+                                            placeholder="School Name"
+                                            value={ebookForm.schoolName}
+                                            onChange={(e) => setEbookForm(prev => ({ ...prev, schoolName: e.target.value }))}
+                                            required
+                                            disabled={ebookSubmitting}
+                                        />
+                                        <input
+                                            className="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
+                                            placeholder="Your Role"
+                                            value={ebookForm.role}
+                                            onChange={(e) => setEbookForm(prev => ({ ...prev, role: e.target.value }))}
+                                            required
+                                            disabled={ebookSubmitting}
+                                        />
+                                        <input
+                                            className="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
+                                            placeholder="Email Address"
+                                            type="email"
+                                            value={ebookForm.email}
+                                            onChange={(e) => setEbookForm(prev => ({ ...prev, email: e.target.value }))}
+                                            required
+                                            disabled={ebookSubmitting}
+                                        />
+                                        <input
+                                            className="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
+                                            placeholder="Phone Number"
+                                            type="tel"
+                                            value={ebookForm.phone}
+                                            onChange={(e) => setEbookForm(prev => ({ ...prev, phone: e.target.value }))}
+                                            required
+                                            disabled={ebookSubmitting}
+                                        />
+                                        <button
+                                            type="submit"
+                                            disabled={ebookSubmitting}
+                                            className="w-full bg-gradient-to-r from-indigo-600 to-blue-500 text-white py-3 rounded-lg font-semibold hover:from-indigo-700 hover:to-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
+                                        >
+                                            {ebookSubmitting ? 'Sending...' : 'Get the E-Book'}
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-                    </section>
+                    </div>
+
+                    {/* Backdrop */}
+                    {isEbookWidgetOpen && (
+                        <div
+                            className="fixed inset-0 bg-black/50 z-40 transition-opacity duration-300"
+                            onClick={() => setIsEbookWidgetOpen(false)}
+                        />
+                    )}
 
                     {/* ================= CUSTOMER REGISTRATION ================= */}
                     <section className="bg-white">

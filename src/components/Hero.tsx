@@ -227,7 +227,7 @@ export const Hero = () => {
 
             {/* Main Heading */}
             <h1
-              className="text-4xl md:text-5xl lg:text-7xl font-bold text-foreground leading-tight mb-6 animate-fade-in"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-tight mb-4 md:mb-6 animate-fade-in"
               key={`title-${selectedIndex}`}
             >
               {heroSlides[selectedIndex].title}{" "}
@@ -237,7 +237,7 @@ export const Hero = () => {
 
             {/* Subheading */}
             <p
-              className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-10 animate-fade-in"
+              className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mb-8 md:mb-10 animate-fade-in"
               key={`desc-${selectedIndex}`}
             >
               {heroSlides[selectedIndex].description}

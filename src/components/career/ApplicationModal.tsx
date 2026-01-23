@@ -13,7 +13,17 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { CareerFormData, CareerFormErrors } from "@/types/career";
-import { submitCareerApplication, isValidEmail, isValidPhone } from "@/services/airtable";
+
+// Local validation functions
+const isValidEmail = (email: string): boolean => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+};
+
+const isValidPhone = (phone: string): boolean => {
+    const digitsOnly = phone.replace(/\D/g, '');
+    return digitsOnly.length >= 10 && digitsOnly.length <= 15;
+};
 
 interface ApplicationModalProps {
     jobTitle: string | null;
@@ -67,14 +77,16 @@ export const ApplicationModal = ({ jobTitle, isOpen, onClose }: ApplicationModal
         setIsSubmitting(true);
 
         try {
-            // Submit to Airtable with resume filename
+            // Log form data (Airtable integration removed)
             const submissionData: CareerFormData = {
                 ...formData,
                 resumeFileName: resume?.name || '',
                 jobTitle: jobTitle || formData.jobTitle,
             };
+            console.log('Career Application Submission:', submissionData);
 
-            await submitCareerApplication(submissionData);
+            // Simulate submission delay
+            await new Promise(resolve => setTimeout(resolve, 1000));
 
             toast.success('Application submitted successfully!', {
                 description: 'We\'ll review your application and get back to you soon.',
@@ -100,7 +112,7 @@ export const ApplicationModal = ({ jobTitle, isOpen, onClose }: ApplicationModal
         } catch (error) {
             console.error('Career application error:', error);
             toast.error('Failed to submit application', {
-                description: error instanceof Error ? error.message : 'Please try again later.',
+                description: 'Please try again later.',
                 duration: 7000,
             });
         } finally {

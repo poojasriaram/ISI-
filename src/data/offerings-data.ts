@@ -1,4 +1,4 @@
-import { Shield, Building, Database, Zap, Server, Activity, Lock, Eye, Factory, Truck, ShoppingBag, HeartPulse, Users, Plane, Map, Layers, User, CheckCircle2 } from "lucide-react";
+import { Shield, Building, Database, Zap, Server, Activity, Lock, Eye, Factory, Truck, ShoppingBag, HeartPulse, Users, Plane, Map, Layers, User, CheckCircle2, Scan, Globe, Calendar, ShieldCheck, Settings, FileCheck, Monitor, Network, Search, DollarSign, Heart } from "lucide-react";
 
 export const coreSecurityData = [
     {
@@ -108,6 +108,96 @@ export const coreSecurityData = [
         icon: Plane,
         levels: "L4-L5",
         description: "Advanced drone-based surveillance with thermal imaging, AI-powered threat detection, and autonomous perimeter monitoring.",
+    },
+    {
+        title: "X-ray Scanning & Screening Systems",
+        icon: Scan,
+        levels: "L3-L5",
+        description: "Advanced baggage and cargo screening with AI-powered threat detection for airports, borders, and critical facilities.",
+    },
+    {
+        title: "Cross-Border Security Services",
+        icon: Globe,
+        levels: "L4-L5",
+        description: "Integrated border surveillance, biometric verification, and multi-layered perimeter defense for international boundaries.",
+    },
+    {
+        title: "Event Security Management",
+        icon: Calendar,
+        levels: "L2-L4",
+        description: "Comprehensive event protection with crowd analytics, access control, and real-time incident response coordination.",
+    },
+    {
+        title: "VIP Security (Close Protection)",
+        icon: ShieldCheck,
+        levels: "L4-L5",
+        description: "Elite close protection services with advance threat assessment, secure transport, and 24/7 personal security detail.",
+    },
+    {
+        title: "Managed Security Services (MSS)",
+        icon: Settings,
+        levels: "L3-L5",
+        description: "End-to-end managed security operations with 24/7 monitoring, incident response, and continuous threat intelligence.",
+    },
+    {
+        title: "SLA-Backed Security Services",
+        icon: FileCheck,
+        levels: "L3-L5",
+        description: "Performance-guaranteed security solutions with defined service levels, compliance reporting, and accountability metrics.",
+    },
+    {
+        title: "Centralized Monitoring & Command Centers",
+        icon: Monitor,
+        levels: "L4-L5",
+        description: "State-of-the-art command centers with integrated video walls, AI analytics, and multi-site security orchestration.",
+    },
+    {
+        title: "Build-Operate-Transfer (BOT) Security Solutions",
+        icon: Building,
+        levels: "L4-L5",
+        description: "Turnkey security infrastructure development with operational management and seamless ownership transfer.",
+    },
+    {
+        title: "Systems Integration (Access Control, VMS, PSIM, Biometrics)",
+        icon: Network,
+        levels: "L3-L5",
+        description: "Unified integration of access control, video management, PSIM platforms, and biometric systems into single pane of glass.",
+    },
+    {
+        title: "Background Verification & Risk Intelligence",
+        icon: Search,
+        levels: "L3-L4",
+        description: "Comprehensive background checks, continuous monitoring, and risk profiling with AI-driven threat intelligence.",
+    },
+    {
+        title: "Aviation & Border Security Solutions",
+        icon: Plane,
+        levels: "L4-L5",
+        description: "Multi-layered aviation security with passenger screening, cargo inspection, and perimeter protection for airports.",
+    },
+    {
+        title: "Critical Infrastructure Security",
+        icon: Server,
+        levels: "L4-L5",
+        description: "Specialized protection for power plants, water facilities, and essential services with cyber-physical defense systems.",
+    },
+    {
+        title: "Cash-in-Transit & Banking Security",
+        icon: DollarSign,
+        levels: "L3-L5",
+        description: "Secure cash transport with GPS tracking, armored vehicles, and real-time monitoring for financial institutions.",
+    },
+    {
+        title: "Healthcare & Pharma Security",
+        icon: Heart,
+        levels: "L3-L4",
+        description: "Specialized healthcare security with access control for sensitive areas, asset tracking, and regulatory compliance.",
+    },
+    {
+        title: "Smart City & Facility Security Integration",
+        icon: Map,
+        levels: "L4-L5",
+        description: "City-wide security integration with IoT sensors, smart surveillance, and centralized command for urban environments.",
     }
 ];
 

@@ -21,7 +21,10 @@ const homeLocations = [
   { id: "11", title: "Andaman and Nicobar Islands", city: "Sri Vijaya Puram", region: "Islands", lat: 11.6234, lng: 92.7265, address: ["Survey no 1364, RNK water supply, Kamraj nagar", "Sri Vijaya puram - 744105"], phone: "+91 96555 99988", email: "info@isisecurity.in" }
 ];
 
+import { useContentProtection } from "@/hooks/useContentProtection";
+
 const Index = () => {
+  useContentProtection();
   return (
     <Layout noPadding={true}>
       <Hero />

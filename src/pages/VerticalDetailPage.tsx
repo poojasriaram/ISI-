@@ -6,7 +6,10 @@ import { verticalsDetailData } from "@/data/verticals-detail-data";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
+import { useContentProtection } from "@/hooks/useContentProtection";
+
 export const VerticalDetailPage = () => {
+    useContentProtection();
     const { verticalId } = useParams<{ verticalId: string }>();
     const navigate = useNavigate();
 
