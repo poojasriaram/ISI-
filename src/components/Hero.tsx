@@ -228,7 +228,7 @@ export const Hero = () => {
               <div className="absolute bottom-0 -left-20 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[100px] pointer-events-none" />
 
               {/* Content Overlay - Now Inside Slide */}
-              <div className="absolute inset-0 flex items-center pt-20 md:pt-0">
+              <div className="absolute inset-0 flex items-center pt-28 md:pt-32 lg:pt-36">
                 <div className="container mx-auto px-4 lg:px-8 relative z-10">
                   <div className="max-w-5xl">
                     {/* Badge */}
