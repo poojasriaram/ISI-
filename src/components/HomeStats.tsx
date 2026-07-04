@@ -1,36 +1,44 @@
-import { Clock, Briefcase, Star, ShieldAlert, ArrowRight } from "lucide-react";
+import { Globe, Award, Shield, Star, Clock, ArrowRight } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const stats = [
     {
-        icon: Briefcase,
+        icon: Globe,
+        value: "28",
+        suffix: "+",
+        label: "STATES COVERED",
+        desc: "Pan-India Presence"
+    },
+    {
+        icon: Award,
+        value: "10,000",
+        suffix: "+",
+        label: "SECURITY PROS",
+        desc: "Highly Trained Force"
+    },
+    {
+        icon: Shield,
         value: "500",
         suffix: "+",
-        label: "Projects Delivered",
-        desc: "Successfully Executed"
+        label: "ENTERPRISE CLIENTS",
+        desc: "Trusted Partners"
     },
     {
         icon: Star,
         value: "98",
         suffix: "%",
-        label: "Client Satisfaction",
+        label: "CUSTOMER SATISFACTION",
         desc: "Trusted by Enterprises"
     },
     {
         icon: Clock,
-        value: "20",
-        suffix: "+",
-        label: "Years Experience",
-        desc: "Industry Leadership"
-    },
-    {
-        icon: ShieldAlert,
-        value: "24",
-        suffix: "×7",
-        label: "Security Operations",
-        desc: "Always Monitoring"
+        value: "15",
+        prefix: "<",
+        suffix: "min",
+        label: "RESPONSE TIME",
+        desc: "Rapid Mobilization"
     },
 ];
 
@@ -78,33 +86,35 @@ const AnimatedCounter = ({ value, suffix = "", prefix = "" }: { value: string; s
 
 export const HomeStats = () => {
     return (
-        <section className="relative z-30 py-12 md:py-16 bg-background">
-            <div className="container mx-auto px-4 lg:px-8">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <section className="relative z-30 py-16 bg-[#1855c2] text-white overflow-hidden">
+            <div className="container mx-auto px-4">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-12">
                     {stats.map((stat, index) => (
-                        <div key={index} className="group relative bg-card border border-border/50 rounded-2xl p-8 shadow-xl shadow-black/5 hover:shadow-2xl hover:shadow-primary/10 hover:border-primary/30 transition-all duration-300 flex flex-col items-center text-center transform hover:-translate-y-2">
-                            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
-                            <div className="relative mb-4 p-4 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground group-hover:scale-110 transition-all duration-300 shadow-sm">
-                                <stat.icon className="w-8 h-8" />
+                        <div 
+                            key={index} 
+                            className={`flex flex-col items-center text-center px-4 ${index !== stats.length - 1 ? 'lg:border-r lg:border-white/20' : ''}`}
+                        >
+                            <div className="mb-6 w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center">
+                                <stat.icon className="w-7 h-7 text-white" strokeWidth={1.5} />
                             </div>
-                            <div className="relative">
+                            <div className="relative mb-2">
                                 <AnimatedCounter value={stat.value} suffix={stat.suffix} prefix={stat.prefix} />
                             </div>
-                            <div className="relative text-sm font-semibold text-foreground uppercase tracking-wider mt-2 opacity-90">{stat.label}</div>
-                            <div className="relative text-sm text-muted-foreground mt-2">{stat.desc}</div>
+                            <div className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-white/90 mb-1">{stat.label}</div>
+                            <div className="text-[10px] sm:text-xs text-white/70">{stat.desc}</div>
                         </div>
                     ))}
                 </div>
 
                 {/* Inline CTA */}
-                <div className="mt-12 text-center">
-                    <div className="inline-flex flex-col sm:flex-row items-center gap-4 bg-muted/30 border border-border/50 p-6 rounded-2xl w-full max-w-3xl mx-auto shadow-sm">
+                <div className="mt-16 text-center">
+                    <div className="inline-flex flex-col sm:flex-row items-center gap-4 bg-white/10 border border-white/20 p-6 rounded-2xl w-full max-w-3xl mx-auto backdrop-blur-sm">
                         <div className="flex-1 text-left sm:text-center md:text-left">
-                            <h4 className="text-lg font-bold text-foreground">Join 500+ Secure Enterprises</h4>
-                            <p className="text-sm text-muted-foreground mt-1">Discover how our integrated solutions can protect your operations.</p>
+                            <h4 className="text-lg font-bold text-white">Join 500+ Secure Enterprises</h4>
+                            <p className="text-sm text-white/80 mt-1">Discover how our integrated solutions can protect your operations.</p>
                         </div>
                         <Link to="/contact">
-                            <Button className="gap-2 rounded-full shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform group">
+                            <Button className="gap-2 rounded-full bg-white text-[#1855c2] hover:bg-white/90 shadow-lg hover:scale-[1.02] transition-transform group">
                                 Get a Customized Security Solution
                                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                             </Button>

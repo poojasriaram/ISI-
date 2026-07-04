@@ -124,10 +124,13 @@ export const Services = () => {
                   {service.description}
                 </p>
 
-                {/* Learn More Button */}
-                <div className="mt-auto">
-                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary group-hover:text-primary/80 transition-colors">
-                    Explore Security Solution <ArrowRight className="w-4 h-4 transition-transform duration-300 transform group-hover:translate-x-2" />
+                {/* Card CTAs */}
+                <div className="mt-auto flex items-center justify-center gap-6 w-full opacity-80 group-hover:opacity-100 transition-opacity duration-300 pt-2">
+                  <Link to="/contact" className="text-sm font-semibold text-muted-foreground hover:text-primary transition-colors z-20 relative">
+                    Contact Us
+                  </Link>
+                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary z-20 relative cursor-pointer">
+                    Explore Solutions <ArrowRight className="w-4 h-4 transition-transform duration-300 transform group-hover:translate-x-1" />
                   </span>
                 </div>
               </div>

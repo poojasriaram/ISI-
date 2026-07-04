@@ -59,7 +59,7 @@ export const HomeCustomers = () => {
           {[...allLogos, ...allLogos].map((company, index) => (
             <div 
               key={index}
-              className="flex items-center justify-center w-40 sm:w-48 mx-4 sm:mx-8 grayscale hover:grayscale-0 hover:scale-110 opacity-70 hover:opacity-100 transition-all duration-300"
+              className="flex items-center justify-center w-40 sm:w-48 mx-4 sm:mx-8 hover:scale-110 transition-all duration-300"
             >
               <img
                 src={company.image}
