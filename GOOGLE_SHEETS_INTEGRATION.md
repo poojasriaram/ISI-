@@ -137,10 +137,10 @@ function doPost(e) {
     var sheetName = data.sheetName;
     
     // Safety: Ignore localhost development data to prevent analytics pollution
-    var ip = data.ipAddress || "";
-    if (ip === "127.0.0.1" || ip === "::1" || ip.toLowerCase().includes("localhost")) {
-      return ContentService.createTextOutput("Ignored: Localhost development data").setMimeType(ContentService.MimeType.TEXT);
-    }
+    // var ip = data.ipAddress || "";
+    // if (ip === "127.0.0.1" || ip === "::1" || ip.toLowerCase().includes("localhost")) {
+    //   return ContentService.createTextOutput("Ignored: Localhost development data").setMimeType(ContentService.MimeType.TEXT);
+    // }
 
     if (!sheetName) {
       return ContentService.createTextOutput("Error: No sheetName").setMimeType(ContentService.MimeType.TEXT);

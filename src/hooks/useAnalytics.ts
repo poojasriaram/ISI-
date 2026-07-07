@@ -201,10 +201,10 @@ export const useAnalytics = () => {
 
     // ─── Raw HTTP fire (no queue logic — only called when IP is ready or for flush) ─
     const fireToSheets = useCallback(async (sheetName: SheetName, data: any) => {
-        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-            console.log(`[Analytics Blocked on Localhost] Would have sent to ${sheetName}:`, data);
-            return;
-        }
+        // if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        //     console.log(`[Analytics Blocked on Localhost] Would have sent to ${sheetName}:`, data);
+        //     return;
+        // }
 
         if (!GOOGLE_SHEETS_WEB_APP_URL || GOOGLE_SHEETS_WEB_APP_URL.includes('YOUR_GOOGLE_SHEETS_WEB_APP_URL')) return;
         try {
