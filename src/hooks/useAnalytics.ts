@@ -210,7 +210,7 @@ export const useAnalytics = () => {
         try {
             const sanitizedData = { ...data };
             for (const key in sanitizedData) {
-                if (typeof sanitizedData[key] === 'string' && sanitizedData[key].startsWith('+')) {
+                if (typeof sanitizedData[key] === 'string' && /^[+=\-@]/.test(sanitizedData[key])) {
                     sanitizedData[key] = `'${sanitizedData[key]}`;
                 }
             }

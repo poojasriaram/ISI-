@@ -48,7 +48,7 @@ async function sendToSheet(sheetName: string, payload: Record<string, any>): Pro
     const ipCtx = getIpContext();
     const sanitizedPayload = { ...payload };
     for (const key in sanitizedPayload) {
-        if (typeof sanitizedPayload[key] === 'string' && sanitizedPayload[key].startsWith('+')) {
+        if (typeof sanitizedPayload[key] === 'string' && /^[+=\-@]/.test(sanitizedPayload[key])) {
             sanitizedPayload[key] = `'${sanitizedPayload[key]}`;
         }
     }
