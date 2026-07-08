@@ -9,7 +9,7 @@ import {
     BaseTrackingData
 } from '@/types/analytics';
 
-const GOOGLE_SHEETS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxfcFmiHhfW3F-T3skwzWZS5fG5XFlL5vbAWJCLbqtg_E06ePa4yIPXsdgLwMFqMfJB/exec';
+const GOOGLE_SHEETS_WEB_APP_URL = import.meta.env.VITE_GOOGLE_SHEETS_WEB_APP_URL;
 
 // ─── IST Timestamp (Human-readable: "26-Feb-2026 07:43:11 IST") ───────────────
 function getISTTimestamp(): string {
@@ -48,7 +48,7 @@ const IP_PROVIDERS = [
     }
 ];
 
-async function fetchIpWithFallback(): Promise<any> {
+async function fetchIpWithFallback(): Promise<any> /* eslint-disable-line @typescript-eslint/no-explicit-any */ {
     // First, try cached data (but only if < 30 minutes old)
     const cached = localStorage.getItem('isi_ip_info');
     if (cached) {
@@ -106,8 +106,8 @@ export const useAnalytics = () => {
         return newId;
     });
 
-    const [ipInfo, setIpInfo] = useState<any>(null);
-    const ipInfoRef = useRef<any>(null); // Keep a ref so closures always see latest value
+    const [ipInfo, setIpInfo] = useState<any> /* eslint-disable-line @typescript-eslint/no-explicit-any */(null);
+    const ipInfoRef = useRef<any> /* eslint-disable-line @typescript-eslint/no-explicit-any */(null); // Keep a ref so closures always see latest value
 
     // ─── Queue: holds events that fired before IP was ready ──────────────────
     const pendingQueue = useRef<{ sheetName: SheetName; data: any }[]>([]);
@@ -200,7 +200,7 @@ export const useAnalytics = () => {
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     // ─── Raw HTTP fire (no queue logic — only called when IP is ready or for flush) ─
-    const fireToSheets = useCallback(async (sheetName: SheetName, data: any) => {
+    const fireToSheets = useCallback(async (sheetName: SheetName, data: any /* eslint-disable-line @typescript-eslint/no-explicit-any */) => {
         // if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
         //     console.log(`[Analytics Blocked on Localhost] Would have sent to ${sheetName}:`, data);
         //     return;
@@ -230,7 +230,7 @@ export const useAnalytics = () => {
     }, [variant]);
 
     // ─── Smart send: waits for IP or queues if not ready ─────────────────────
-    const sendToGoogleSheets = useCallback(async (sheetName: SheetName, data: any) => {
+    const sendToGoogleSheets = useCallback(async (sheetName: SheetName, data: any /* eslint-disable-line @typescript-eslint/no-explicit-any */) => {
         if (!GOOGLE_SHEETS_WEB_APP_URL || GOOGLE_SHEETS_WEB_APP_URL.includes('YOUR_GOOGLE_SHEETS_WEB_APP_URL')) return;
 
         const currentIp = ipInfoRef.current;
@@ -635,7 +635,7 @@ export const useAnalytics = () => {
             sessionFlags.current.exitIntentTriggered = true;
             navigationPath.current.push({ path: 'Action: Exit Intent Triggered', timestamp: Date.now() });
         },
-        trackFormSubmission: (sheetName: SheetName, formData: any) => {
+        trackFormSubmission: (sheetName: SheetName, formData: any /* eslint-disable-line @typescript-eslint/no-explicit-any */) => {
             navigationPath.current.push({ path: `Action: Form Submitted [${sheetName}]`, timestamp: Date.now() });
             if (formInteractions.current[sheetName]) formInteractions.current[sheetName].submitted = true;
             if (sheetName === 'PartnerApps') counters.current.partnerInquiries++;
@@ -674,7 +674,7 @@ export const useAnalytics = () => {
 };
 
 // ─── Helper: Format location string ───────────────────────────────────────────
-function formatLocation(ipData: any): string {
+function formatLocation(ipData: any /* eslint-disable-line @typescript-eslint/no-explicit-any */): string {
     if (!ipData) return '';
     const parts = [ipData.city, ipData.region, ipData.country_name].filter(Boolean);
     return parts.join(', ') || '';
@@ -726,9 +726,9 @@ function calculateRageClicks(interactions: any[]) {
     return Math.floor(rage / 3);
 }
 
-function calculateIntentRank(i: any, c: any) {
+function calculateIntentRank(i: any /* eslint-disable-line @typescript-eslint/no-explicit-any */, c: any /* eslint-disable-line @typescript-eslint/no-explicit-any */) {
     let score = 0;
-    Object.values(i).forEach((v: any) => score += (v * 10));
+    Object.values(i).forEach((v: any /* eslint-disable-line @typescript-eslint/no-explicit-any */) => score += (v * 10));
     score += (c.clicks * 2) + (c.mapInteractions * 5);
     return Math.min(score, 100);
 }
@@ -759,7 +759,7 @@ function calculateWeightedRank(pages: number, sec: number) {
     return Math.round(pages * 15 + (sec / 10));
 }
 
-function identifySegment(email: boolean, phone: boolean, returning: boolean, score: number, interests: any) {
+function identifySegment(email: boolean, phone: boolean, returning: boolean, score: number, interests: any /* eslint-disable-line @typescript-eslint/no-explicit-any */) {
     let topInterest = 'GENERAL';
     let maxVal = 0;
     for (const [key, val] of Object.entries(interests)) {

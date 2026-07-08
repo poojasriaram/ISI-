@@ -1,6 +1,6 @@
 // src/services/formService.ts
 
-const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxfcFmiHhfW3F-T3skwzWZS5fG5XFlL5vbAWJCLbqtg_E06ePa4yIPXsdgLwMFqMfJB/exec';
+const SHEETS_URL = import.meta.env.VITE_GOOGLE_SHEETS_WEB_APP_URL;
 
 /** Returns current time as human-readable IST string: "26-Feb-2026 07:43:11 IST" */
 function getISTTimestamp(): string {
@@ -39,7 +39,7 @@ function getIpContext(): { ipAddress: string; location: string; organization: st
 /**
  * Generic sheet sender — wraps every form submission with IP context.
  */
-async function sendToSheet(sheetName: string, payload: Record<string, any>): Promise<void> {
+async function sendToSheet(sheetName: string, payload: Record<string, unknown>): Promise<void> {
     if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
         console.log(`[Form Blocked on Localhost] Would have sent to ${sheetName}:`, payload);
         return;
@@ -95,7 +95,7 @@ export const submitChatbotLead = async (
         throw error;
     }
 };
-export const submitCareerApplication = async (data: any) => {
+export const submitCareerApplication = async (data: Record<string, unknown>) => {
     try {
         await sendToSheet('CareerApplications', data);
         return { success: true };
@@ -105,7 +105,7 @@ export const submitCareerApplication = async (data: any) => {
     }
 };
 
-export const submitTenderRFQ = async (data: any) => {
+export const submitTenderRFQ = async (data: Record<string, unknown>) => {
     try {
         await sendToSheet('TenderRFQ', data);
         return { success: true };
