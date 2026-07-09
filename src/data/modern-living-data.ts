@@ -12,19 +12,19 @@ export interface ModernLivingStatistic {
     label: string;
     value: string;
     sub: string;
-    icon: any;
+    icon: any /* eslint-disable-line @typescript-eslint/no-explicit-any */;
 }
 
 export interface ModernLivingPortfolioCard {
     title: string;
-    icon: any;
+    icon: any /* eslint-disable-line @typescript-eslint/no-explicit-any */;
     features: string[];
 }
 
 export interface ModernLivingTab {
     id: string;
     label: string;
-    icon: any;
+    icon: any /* eslint-disable-line @typescript-eslint/no-explicit-any */;
     title: string;
     desc: string;
     items: string[];

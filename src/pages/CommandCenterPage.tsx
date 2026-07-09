@@ -34,29 +34,12 @@ const CommandCenterPage = () => {
     const [selectedIndex, setSelectedIndex] = useState(0);
     const autoplayRef = useRef<NodeJS.Timeout | null>(null);
 
-    const scrollPrev = useCallback(() => {
-        if (emblaApi) {
-            stopAutoPlay();
-            emblaApi.scrollPrev();
-            setTimeout(startAutoPlay, 5000);
+        const stopAutoPlay = useCallback(() => {
+        if (autoplayRef.current) {
+            clearInterval(autoplayRef.current);
+            autoplayRef.current = null;
         }
-    }, [emblaApi]);
-
-    const scrollNext = useCallback(() => {
-        if (emblaApi) {
-            stopAutoPlay();
-            emblaApi.scrollNext();
-            setTimeout(startAutoPlay, 5000);
-        }
-    }, [emblaApi]);
-
-    const scrollTo = useCallback((index: number) => {
-        if (emblaApi) {
-            stopAutoPlay();
-            emblaApi.scrollTo(index);
-            setTimeout(startAutoPlay, 5000);
-        }
-    }, [emblaApi]);
+    }, []);
 
     const startAutoPlay = useCallback(() => {
         if (autoplayRef.current) return;
@@ -65,12 +48,29 @@ const CommandCenterPage = () => {
         }, 4000);
     }, [emblaApi]);
 
-    const stopAutoPlay = useCallback(() => {
-        if (autoplayRef.current) {
-            clearInterval(autoplayRef.current);
-            autoplayRef.current = null;
+    const scrollPrev = useCallback(() => {
+        if (emblaApi) {
+            stopAutoPlay();
+            emblaApi.scrollPrev();
+            setTimeout(startAutoPlay, 5000);
         }
-    }, []);
+    }, [emblaApi, startAutoPlay, stopAutoPlay]);
+
+    const scrollNext = useCallback(() => {
+        if (emblaApi) {
+            stopAutoPlay();
+            emblaApi.scrollNext();
+            setTimeout(startAutoPlay, 5000);
+        }
+    }, [emblaApi, startAutoPlay, stopAutoPlay]);
+
+    const scrollTo = useCallback((index: number) => {
+        if (emblaApi) {
+            stopAutoPlay();
+            emblaApi.scrollTo(index);
+            setTimeout(startAutoPlay, 5000);
+        }
+    }, [emblaApi, startAutoPlay, stopAutoPlay]);
 
     useEffect(() => {
         if (!emblaApi) return;

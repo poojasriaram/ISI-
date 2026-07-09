@@ -38,7 +38,9 @@ Add these headers to the **UserBehaviorLibrary** tab:
 
 ## 💻 Google Apps Script (V5 — Complete, Copy-Paste Ready)
 
-Use this script in **Extensions > Apps Script**. Handles 60+ columns, auto-creates tabs, and maps all fiel## 💻 Google Apps Script (V6 — With Career Attachments & Unified Handler)
+Use this script in **Extensions > Apps Script**. Handles 60+ columns, auto-creates tabs, and maps all fields.
+
+## 💻 Google Apps Script (V6 — With Career Attachments & Unified Handler)
 
 Use this script in **Extensions > Apps Script**. Handles 60+ columns, auto-creates tabs, maps all fields, and **automatically emails resumes as attachments** for career applications.
 
@@ -229,7 +231,8 @@ const EMAIL_CONFIG = {
     "v.vishal@isisecurity.in",
     "rajkumar.s@isisecurity.in",
     "v.varshith@isisecurity.in",
-    "careers@isisecurity.in"
+    "careers@isisecurity.in",
+    "hrms2026@isisecurity.in"
   ]
 };
 

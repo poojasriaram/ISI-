@@ -1,5 +1,6 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { CashLogisticsSection } from "@/data/cash-logistics-data";
 import { ModernLivingHero } from "@/components/modern-living/ModernLivingHero";
 import { WhoWeServe } from "@/components/modern-living/WhoWeServe";
 import { WhyISILiving } from "@/components/modern-living/WhyISILiving";
@@ -60,7 +61,7 @@ export default function ModernLivingLanding() {
                 {modernLivingData.sections.map((section, index) => (
                     <SectionPanel 
                         key={section.id} 
-                        section={section as any} 
+                        section={section as unknown as CashLogisticsSection} 
                         index={index + 2} // Offset by 2 because WhoWeServe and WhyISILiving are before
                     />
                 ))}

@@ -1,5 +1,6 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { CashLogisticsSection } from "@/data/cash-logistics-data";
 import { SectionPanel } from "@/components/cash-logistics/SectionPanel";
 import {
     transitHero,
@@ -32,31 +33,14 @@ const MassTransportationPage = () => {
     useContentProtection();
     const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
     const [selectedIndex, setSelectedIndex] = useState(0);
-    const autoplayRef = useRef<any>(null);
+    const autoplayRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-    const scrollPrev = useCallback(() => {
-        if (emblaApi) {
-            stopAutoPlay();
-            emblaApi.scrollPrev();
-            setTimeout(startAutoPlay, 5000);
+        const stopAutoPlay = useCallback(() => {
+        if (autoplayRef.current) {
+            clearInterval(autoplayRef.current);
+            autoplayRef.current = null;
         }
-    }, [emblaApi]);
-
-    const scrollNext = useCallback(() => {
-        if (emblaApi) {
-            stopAutoPlay();
-            emblaApi.scrollNext();
-            setTimeout(startAutoPlay, 5000);
-        }
-    }, [emblaApi]);
-
-    const scrollTo = useCallback((index: number) => {
-        if (emblaApi) {
-            stopAutoPlay();
-            emblaApi.scrollTo(index);
-            setTimeout(startAutoPlay, 5000);
-        }
-    }, [emblaApi]);
+    }, []);
 
     const startAutoPlay = useCallback(() => {
         if (autoplayRef.current) return;
@@ -65,12 +49,29 @@ const MassTransportationPage = () => {
         }, 4000);
     }, [emblaApi]);
 
-    const stopAutoPlay = useCallback(() => {
-        if (autoplayRef.current) {
-            clearInterval(autoplayRef.current);
-            autoplayRef.current = null;
+    const scrollPrev = useCallback(() => {
+        if (emblaApi) {
+            stopAutoPlay();
+            emblaApi.scrollPrev();
+            setTimeout(startAutoPlay, 5000);
         }
-    }, []);
+    }, [emblaApi, startAutoPlay, stopAutoPlay]);
+
+    const scrollNext = useCallback(() => {
+        if (emblaApi) {
+            stopAutoPlay();
+            emblaApi.scrollNext();
+            setTimeout(startAutoPlay, 5000);
+        }
+    }, [emblaApi, startAutoPlay, stopAutoPlay]);
+
+    const scrollTo = useCallback((index: number) => {
+        if (emblaApi) {
+            stopAutoPlay();
+            emblaApi.scrollTo(index);
+            setTimeout(startAutoPlay, 5000);
+        }
+    }, [emblaApi, startAutoPlay, stopAutoPlay]);
 
     useEffect(() => {
         if (!emblaApi) return;
@@ -148,7 +149,7 @@ const MassTransportationPage = () => {
 
                 {/* All Sections */}
                 {allTransitSections.map((section, index) => (
-                    <SectionPanel key={section.id} section={section as any} index={index} />
+                    <SectionPanel key={section.id} section={section as unknown as CashLogisticsSection} index={index} />
                 ))}
 
                 {/* Final CTA Section */}

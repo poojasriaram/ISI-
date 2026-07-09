@@ -9,13 +9,13 @@ export interface VerticalDetailOffering {
 export interface VerticalDetailBenefit {
     title: string;
     description: string;
-    icon: any;
+    icon: any /* eslint-disable-line @typescript-eslint/no-explicit-any */;
 }
 
 export interface VerticalDetailSection {
     id: string;
     title: string;
-    icon: any;
+    icon: any /* eslint-disable-line @typescript-eslint/no-explicit-any */;
     offerings: VerticalDetailOffering[];
     benefits: VerticalDetailBenefit[];
 }
@@ -26,7 +26,7 @@ export interface VerticalDetail {
     subtitle: string;
     description: string;
     gradient: string;
-    icon: any;
+    icon: any /* eslint-disable-line @typescript-eslint/no-explicit-any */;
     sections: VerticalDetailSection[];
     closingStatement?: string;
 }

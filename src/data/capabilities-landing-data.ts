@@ -10,11 +10,11 @@ import {
 export interface CapabilitiesStatistic {
     value: string;
     label: string;
-    icon: any;
+    icon: any /* eslint-disable-line @typescript-eslint/no-explicit-any */;
 }
 
 export interface CapabilitiesCard {
-    icon: any;
+    icon: any /* eslint-disable-line @typescript-eslint/no-explicit-any */;
     title: string;
     features: string[];
 }

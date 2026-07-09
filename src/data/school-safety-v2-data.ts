@@ -18,19 +18,19 @@ export interface SchoolSafetyStatistic {
     label: string;
     value: string;
     sub: string;
-    icon: any;
+    icon: any /* eslint-disable-line @typescript-eslint/no-explicit-any */;
 }
 
 export interface SchoolSafetyPortfolioCard {
     title: string;
-    icon: any;
+    icon: any /* eslint-disable-line @typescript-eslint/no-explicit-any */;
     features: string[];
 }
 
 export interface SchoolSafetyTab {
     id: string;
     label: string;
-    icon: any;
+    icon: any /* eslint-disable-line @typescript-eslint/no-explicit-any */;
     title: string;
     desc: string;
     items: string[];

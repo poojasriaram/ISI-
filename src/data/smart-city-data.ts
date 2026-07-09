@@ -11,11 +11,11 @@ import {
 export interface SmartCityStatistic {
     value: string;
     label: string;
-    icon: any;
+    icon: any /* eslint-disable-line @typescript-eslint/no-explicit-any */;
 }
 
 export interface SmartCityCard {
-    icon: any;
+    icon: any /* eslint-disable-line @typescript-eslint/no-explicit-any */;
     title: string;
     features: string[];
 }

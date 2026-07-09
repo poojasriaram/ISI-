@@ -40,10 +40,10 @@ function getIpContext(): { ipAddress: string; location: string; organization: st
  * Generic sheet sender — wraps every form submission with IP context.
  */
 async function sendToSheet(sheetName: string, payload: Record<string, unknown>): Promise<void> {
-    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-        console.log(`[Form Blocked on Localhost] Would have sent to ${sheetName}:`, payload);
-        return;
-    }
+    // if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+    //     console.log(`[Form Blocked on Localhost] Would have sent to ${sheetName}:`, payload);
+    //     return;
+    // }
 
     const ipCtx = getIpContext();
     const sanitizedPayload = { ...payload };
